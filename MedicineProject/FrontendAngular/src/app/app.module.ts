@@ -25,7 +25,7 @@ import { FooterComponent } from './components/footer/footer.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     MaterialModule
   ],
   providers: [],
