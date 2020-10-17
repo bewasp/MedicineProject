@@ -13,11 +13,27 @@
         </mat-form-field>
 
         <mat-form-field>
+          <input id="surname"
+                 matInput
+                 formControlName="surname"
+                 [(ngModel)]="user.surname"
+                 placeholder="Enter your surname" />
+        </mat-form-field>
+
+        <mat-form-field>
           <input id="email"
                  matInput
                  formControlName="email"
                  [(ngModel)]="user.email"
                  placeholder="Enter your email" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input id="phone"
+                 matInput
+                 formControlName="phone"
+                 [(ngModel)]="user.phoneNumber"
+                 placeholder="Enter your phone" />
         </mat-form-field>
 
         <mat-form-field>

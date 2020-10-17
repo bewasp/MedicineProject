@@ -11,6 +11,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from './material.module';
 import { FooterComponent } from './components/footer/footer.component';
+import { DosageComponent } from './components/dosage/dosage.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FooterComponent } from './components/footer/footer.component';
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    DosageComponent
   ],
   imports: [
     BrowserModule,

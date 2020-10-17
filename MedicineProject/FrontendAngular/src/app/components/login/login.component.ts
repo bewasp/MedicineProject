@@ -32,5 +32,4 @@ export class LoginComponent implements OnInit {
   onLoginSubmit() {
     alert(this.user.email + ' ' + this.user.password);
   }
-
 }
