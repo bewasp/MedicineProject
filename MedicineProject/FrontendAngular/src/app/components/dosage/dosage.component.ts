@@ -26,13 +26,13 @@ export class DosageComponent implements OnInit {
       'doseTimestamp': [this.dose.doseTimestamp, [
         Validators.required,
       ]],
-      'numberDose': [this.dose.numberDose, [
+      'doseNumber': [this.dose.doseNumber, [
         Validators.required
       ]]
     });
   }
 
   onDoseSubmit() {
-    alert(this.dose.name + ' ' + this.dose.dailyDose + ' ' + this.dose.doseTimestamp + ' ' + this.dose.numberDose);
+    alert(this.dose.name + ' ' + this.dose.dailyDose + ' ' + this.dose.doseTimestamp + ' ' + this.dose.doseNumber);
   }
 }

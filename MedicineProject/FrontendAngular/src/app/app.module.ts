@@ -12,6 +12,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from './material.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { DosageComponent } from './components/dosage/dosage.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {AuthInterceptor} from './services/auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -28,9 +30,16 @@ import { DosageComponent } from './components/dosage/dosage.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
