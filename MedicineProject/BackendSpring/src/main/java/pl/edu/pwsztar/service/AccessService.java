@@ -1,9 +1,9 @@
 package pl.edu.pwsztar.service;
 
 
-import pl.edu.pwsztar.domain.dto.AuthenticationDto;
-import pl.edu.pwsztar.domain.dto.AuthenticationResult;
-import pl.edu.pwsztar.domain.dto.ClientDto;
+import pl.edu.pwsztar.domain.dto.auth.AuthenticationDto;
+import pl.edu.pwsztar.domain.dto.auth.AuthenticationResult;
+import pl.edu.pwsztar.domain.dto.cure.ClientDto;
 
 public interface AccessService {
     boolean register(ClientDto client);

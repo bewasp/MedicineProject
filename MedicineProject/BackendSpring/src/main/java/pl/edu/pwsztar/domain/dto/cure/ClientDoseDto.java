@@ -1,4 +1,4 @@
-package pl.edu.pwsztar.domain.dto;
+package pl.edu.pwsztar.domain.dto.cure;
 
 
 import java.io.Serializable;

@@ -1,10 +1,6 @@
-package pl.edu.pwsztar.domain.dto;
-
-import pl.edu.pwsztar.domain.entity.AcceptedDose;
-import pl.edu.pwsztar.domain.entity.ClientDose;
+package pl.edu.pwsztar.domain.dto.cure;
 
 import java.io.Serializable;
-import java.util.Set;
 
 public class ClientDto implements Serializable {
     private String email;

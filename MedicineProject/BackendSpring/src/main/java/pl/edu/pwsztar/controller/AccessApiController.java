@@ -6,9 +6,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import pl.edu.pwsztar.domain.dto.AuthenticationDto;
-import pl.edu.pwsztar.domain.dto.AuthenticationResult;
-import pl.edu.pwsztar.domain.dto.ClientDto;
+import pl.edu.pwsztar.domain.dto.auth.AuthenticationDto;
+import pl.edu.pwsztar.domain.dto.auth.AuthenticationResult;
+import pl.edu.pwsztar.domain.dto.cure.ClientDto;
 import pl.edu.pwsztar.service.AccessService;
 
 @Controller

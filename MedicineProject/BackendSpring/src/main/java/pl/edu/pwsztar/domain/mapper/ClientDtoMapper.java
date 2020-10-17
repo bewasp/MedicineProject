@@ -1,7 +1,7 @@
 package pl.edu.pwsztar.domain.mapper;
 
 import org.springframework.stereotype.Component;
-import pl.edu.pwsztar.domain.dto.ClientDto;
+import pl.edu.pwsztar.domain.dto.cure.ClientDto;
 import pl.edu.pwsztar.domain.entity.Client;
 import pl.edu.pwsztar.domain.mapper.convert.Converter;
 

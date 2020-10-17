@@ -1,4 +1,4 @@
-package pl.edu.pwsztar.domain.dto;
+package pl.edu.pwsztar.domain.dto.auth;
 
 import java.io.Serializable;
 
