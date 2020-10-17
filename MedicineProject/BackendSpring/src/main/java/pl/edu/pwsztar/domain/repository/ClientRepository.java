@@ -9,6 +9,6 @@ import pl.edu.pwsztar.domain.entity.Client;
 
 @Repository
 public interface ClientRepository extends JpaRepository<Client,Long> , CrudRepository<Client,Long> {
-    @Query("SELECT client.password FROM Client client WHERE client.email = ?1")
-    String findByKey(String email);
+    @Query("SELECT client FROM Client client WHERE client.email=?1")
+    Client findClientByEmail(String email);
 }

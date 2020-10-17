@@ -52,6 +52,18 @@ public class ClientDto implements Serializable {
         private String phoneNumber;
         private String password;
 
+        public Builder(){
+
+        }
+
+        public Builder(ClientDto copy) {
+            this.email = copy.getEmail();
+            this.name = copy.getName();
+            this.surname = copy.getSurname();
+            this.phoneNumber = copy.getPhoneNumber();
+            this.password = copy.getPassword();
+        }
+
         public Builder email(String email){
             this.email = email;
             return this;
