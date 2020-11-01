@@ -11,4 +11,7 @@ import pl.edu.pwsztar.domain.entity.Client;
 public interface ClientRepository extends JpaRepository<Client,Long> , CrudRepository<Client,Long> {
     @Query("SELECT client FROM Client client WHERE client.email=?1")
     Client findClientByEmail(String email);
+
+    @Query("SELECT client FROM Client client WHERE client.clientId = ?1")
+    Client findClient(Long userId);
 }

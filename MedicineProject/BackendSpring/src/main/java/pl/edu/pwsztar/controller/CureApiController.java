@@ -19,7 +19,7 @@ public class CureApiController {
     private final ClientDoseService clientDoseService;
 
     @Autowired
-    public CureApiController(ClientDoseService clientDoseService, 
+    public CureApiController(ClientDoseService clientDoseService,
                              CureService cureService){
         this.cureService=cureService;
         this.clientDoseService = clientDoseService;
