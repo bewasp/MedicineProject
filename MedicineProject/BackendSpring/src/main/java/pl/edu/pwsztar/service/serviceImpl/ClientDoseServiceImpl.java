@@ -21,24 +21,32 @@ public class ClientDoseServiceImpl implements ClientDoseService {
     private final ClientRepository clientRepository;
 
     private final Converter<List<Cure>, List<CureDto>> cureListMapper;
+    private final Converter<List<ClientDose>, List<Cure>> clientDoseMapper;
 
     @Autowired
-    public ClientDoseServiceImpl(ClientDoseRepository clientDoseRepository, ClientRepository clientRepository, Converter<List<Cure>, List<CureDto>> cureListMapper){
+    public ClientDoseServiceImpl(ClientDoseRepository clientDoseRepository,
+                                 ClientRepository clientRepository,
+                                 Converter<List<Cure>, List<CureDto>> cureListMapper,
+                                 Converter<List<ClientDose>, List<Cure>> clientDoseMapper){
         this.clientDoseRepository = clientDoseRepository;
         this.clientRepository = clientRepository;
+
         this.cureListMapper = cureListMapper;
+        this.clientDoseMapper = clientDoseMapper;
     }
 
     @Override
-    public void addCureForClient(Long userId, Cure cure) {
+    public boolean addCureForClient(Long userId, Cure cure) {
         Optional<Client> clientExists = clientRepository.findById(userId);
 
-
-        if (clientExists.isPresent()){
+        if (clientExists.isPresent() && cure != null){
             Client client = clientExists.get();
             ClientDose clientDose = new ClientDose.Builder().clientDoseKey(new ClientDoseKey(client.getClientId(),cure.getCureId())).client(client).cure(cure).build();
             clientDoseRepository.save(clientDose);
+            return true;
         }
+
+        return false;
     }
 
     @Override
