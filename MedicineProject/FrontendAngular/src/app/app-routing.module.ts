@@ -5,6 +5,7 @@ import {RegisterComponent} from './components/register/register.component';
 import {LoginComponent} from './components/login/login.component';
 import {DosageComponent} from './components/dosage/dosage.component';
 import {AuthGuard} from './services/auth/auth-guard.guard';
+import {MedicinesComponent} from './components/medicines/medicines.component';
 
 const routes: Routes = [{
   path: '',
@@ -18,6 +19,10 @@ const routes: Routes = [{
 }, {
   path: 'dose',
   component: DosageComponent,
+  canActivate: [AuthGuard]
+}, {
+  path: 'medicines',
+  component: MedicinesComponent,
   canActivate: [AuthGuard]
 }];
 

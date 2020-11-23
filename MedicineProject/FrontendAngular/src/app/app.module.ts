@@ -14,6 +14,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { DosageComponent } from './components/dosage/dosage.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './services/auth/auth.interceptor';
+import { MedicineComponent } from './components/medicine/medicine.component';
+import { MedicinesComponent } from './components/medicines/medicines.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import {AuthInterceptor} from './services/auth/auth.interceptor';
     RegisterComponent,
     NavbarComponent,
     FooterComponent,
-    DosageComponent
+    DosageComponent,
+    MedicineComponent,
+    MedicinesComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@
   <mat-toolbar-row>
     <button mat-button routerLink="/">Home</button>
     <button mat-button routerLink="/dose" *ngIf="authService.isLoggedIn()">Dosage</button>
+    <button mat-button routerLink="/medicines" *ngIf="authService.isLoggedIn()">Your medicines</button>
 
     <span class="spacer"></span>
 

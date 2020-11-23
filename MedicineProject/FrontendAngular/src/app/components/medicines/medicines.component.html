@@ -1,0 +1,7 @@
+<div *ngFor="let i of medicines">
+  <app-medicine [name]="i.name"
+                [dailyDose]="i.dailyDose"
+                [doseNumber]="i.doseNumber"
+                [doseTimestamp]="i.doseTimestamp">
+  </app-medicine>
+</div>

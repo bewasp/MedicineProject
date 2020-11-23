@@ -1,0 +1,19 @@
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+
+.items {
+  color: white;
+  width: 500px;
+  background: rgba(0,0,0,0.5);
+  border-radius: 25px;
+}
+
+.text-forms {
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 15px black;
+  font-family: Georgia;
+  overflow-y: auto;
+}
