@@ -16,6 +16,9 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './services/auth/auth.interceptor';
 import { MedicineComponent } from './components/medicine/medicine.component';
 import { MedicinesComponent } from './components/medicines/medicines.component';
+import { ChartComponent } from './components/chart/chart.component';
+import {ChartsModule} from 'ng2-charts';
+import { ConfirmEmailComponent } from './components/confirm-email/confirm-email.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,9 @@ import { MedicinesComponent } from './components/medicines/medicines.component';
     FooterComponent,
     DosageComponent,
     MedicineComponent,
-    MedicinesComponent
+    MedicinesComponent,
+    ChartComponent,
+    ConfirmEmailComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,8 @@ import { MedicinesComponent } from './components/medicines/medicines.component';
     BrowserAnimationsModule,
     ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
   ],
   providers: [
     {

@@ -1,0 +1,15 @@
+<div style="display: block">
+  <canvas baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          [colors]="colors"></canvas>
+</div>
+
+<div class="flex-container" *ngIf="stats !== null">
+  <div class="text-forms" *ngFor="let i of stats.report">
+    <mat-list>
+      <mat-list-item class="items"> <mat-icon>cached</mat-icon> {{i.acceptedDose}} | <mat-icon>calendar_today</mat-icon> {{i.date}} | Name of medicine: {{i.name}}</mat-list-item>
+    </mat-list>
+  </div>
+</div>

@@ -39,8 +39,20 @@ export class RegisterComponent implements OnInit {
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(30)
-      ]]
-    });
+      ]],
+      'confirm_pass': [[] , [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(20)
+      ]],
+    }, {validator: this.checkPasswords});
+  }
+
+  checkPasswords(group: FormGroup) {
+    const pass = group.get('password').value;
+    const confirmPass = group.get('confirm_pass').value;
+
+    return pass === confirmPass ? null : { notSame: true };
   }
 
   onRegisterSubmit() {
