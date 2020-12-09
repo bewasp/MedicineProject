@@ -1,0 +1,7 @@
+.bg {
+  background-color: lightgray;
+  background-position: center;
+  background-size: cover;
+  height: auto;
+  min-height: 100vh;
+}

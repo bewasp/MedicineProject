@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {DosageModel} from '../../models/dosage.model';
+import {DataService} from '../../services/data.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -13,7 +15,9 @@ export class DosageComponent implements OnInit {
   dose: DosageModel = new DosageModel();
   doseForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+              private service: DataService,
+              private router: Router) { }
 
   ngOnInit() {
     this.doseForm = this.formBuilder.group({
@@ -33,6 +37,10 @@ export class DosageComponent implements OnInit {
   }
 
   onDoseSubmit() {
-    alert(this.dose.name + ' ' + this.dose.dailyDose + ' ' + this.dose.doseTimestamp + ' ' + this.dose.doseNumber);
+    this.service.createClientDose(this.dose).subscribe();
+    alert('Medicine added');
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate(['/dose']);
   }
 }

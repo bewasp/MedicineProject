@@ -68,4 +68,8 @@ export class UserAccessService {
   getToken() {
     return localStorage.getItem('token');
   }
+
+  confirmRegistration(id: string) {
+    return this.http.get(this.url + '/register/confirm-email/' + id);
+  }
 }

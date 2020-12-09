@@ -14,6 +14,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { DosageComponent } from './components/dosage/dosage.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './services/auth/auth.interceptor';
+import { MedicineComponent } from './components/medicine/medicine.component';
+import { MedicinesComponent } from './components/medicines/medicines.component';
+import { ChartComponent } from './components/chart/chart.component';
+import {ChartsModule} from 'ng2-charts';
+import { ConfirmEmailComponent } from './components/confirm-email/confirm-email.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +28,11 @@ import {AuthInterceptor} from './services/auth/auth.interceptor';
     RegisterComponent,
     NavbarComponent,
     FooterComponent,
-    DosageComponent
+    DosageComponent,
+    MedicineComponent,
+    MedicinesComponent,
+    ChartComponent,
+    ConfirmEmailComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +40,8 @@ import {AuthInterceptor} from './services/auth/auth.interceptor';
     BrowserAnimationsModule,
     ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
   ],
   providers: [
     {
