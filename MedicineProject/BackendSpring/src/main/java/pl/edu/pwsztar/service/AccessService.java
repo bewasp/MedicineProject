@@ -9,4 +9,5 @@ public interface AccessService {
     boolean register(ClientDto client);
     AuthenticationResult authentication(AuthenticationDto authenticationDto);
     void removeHashSession(Long userId);
+    Boolean completeEmailVerification(String link);
 }

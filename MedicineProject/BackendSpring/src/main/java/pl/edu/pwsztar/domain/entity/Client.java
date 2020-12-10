@@ -29,6 +29,9 @@ public class Client implements Serializable {
     @Column(name="password")
     private String password;
 
+    @Column(name="activated_email")
+    private Boolean activatedEmail;
+
     public Client() {
     }
 
@@ -40,6 +43,7 @@ public class Client implements Serializable {
         this.password = builder.password;
         this.acceptedDoses = builder.acceptedDoses;
         this.dose = builder.dose;
+        this.activatedEmail = builder.activatedEmail;
     }
 
     @OneToMany(mappedBy = "client")
@@ -47,6 +51,12 @@ public class Client implements Serializable {
 
     @OneToMany(mappedBy = "client")
     private List<ClientDose> dose;
+
+    @OneToMany(mappedBy = "client")
+    private List<Token> tokens;
+
+    @OneToOne(mappedBy = "client")
+    private Link link;
 
     public List<AcceptedDose> getAcceptedDoses() {
         return acceptedDoses;
@@ -80,6 +90,10 @@ public class Client implements Serializable {
         return password;
     }
 
+    public Boolean getActivatedEmail() {
+        return activatedEmail;
+    }
+
     public static final class Builder{
         private Long clientId;
         private List<AcceptedDose> acceptedDoses;
@@ -89,6 +103,7 @@ public class Client implements Serializable {
         private String surname;
         private String phoneNumber;
         private String password;
+        private Boolean activatedEmail;
 
         public Builder() {
         }
@@ -102,6 +117,7 @@ public class Client implements Serializable {
             this.password =copy.getPassword();
             this.acceptedDoses = copy.getAcceptedDoses();
             this.dose = copy.getDose();
+            this.activatedEmail = copy.getActivatedEmail();
         }
 
         public Builder clientId(Long clientId){
@@ -141,6 +157,11 @@ public class Client implements Serializable {
 
         public Builder password(String password){
             this.password=password;
+            return this;
+        }
+
+        public Builder activatedEmail(Boolean activatedEmail){
+            this.activatedEmail = activatedEmail;
             return this;
         }
 

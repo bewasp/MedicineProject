@@ -11,6 +11,6 @@ public interface TokenRepository extends JpaRepository<Token,Long>, CrudReposito
 
     @Transactional
     @Modifying
-    @Query("DELETE FROM Token token WHERE token.userId=?1")
+    @Query("DELETE FROM Token token WHERE token.id_client=?1")
     void removeSession(Long userId);
 }

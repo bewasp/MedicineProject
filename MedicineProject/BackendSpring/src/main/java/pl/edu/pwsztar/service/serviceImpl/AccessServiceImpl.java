@@ -6,15 +6,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.edu.pwsztar.domain.dao.ClientDao;
 import pl.edu.pwsztar.domain.dto.auth.AuthenticationDto;
 import pl.edu.pwsztar.domain.dto.auth.AuthenticationResult;
 import pl.edu.pwsztar.domain.dto.cure.ClientDto;
 import pl.edu.pwsztar.domain.entity.Client;
+import pl.edu.pwsztar.domain.entity.Link;
 import pl.edu.pwsztar.domain.entity.Token;
 import pl.edu.pwsztar.domain.mapper.convert.Converter;
 import pl.edu.pwsztar.domain.repository.ClientRepository;
+import pl.edu.pwsztar.domain.repository.LinkRepository;
 import pl.edu.pwsztar.domain.repository.TokenRepository;
-import pl.edu.pwsztar.domain.token.JwtTokenUtil;
+import pl.edu.pwsztar.service.MailService;
+import pl.edu.pwsztar.service.serviceImpl.token.JwtTokenUtil;
 import pl.edu.pwsztar.service.AccessService;
 
 import java.math.BigInteger;
@@ -27,9 +31,13 @@ import java.util.Optional;
 public class AccessServiceImpl implements AccessService {
     private final ClientRepository clientRepository;
     private final TokenRepository tokenRepository;
+    private final LinkRepository linkRepository;
 
     private final Converter<Client, ClientDto> clientMapper;
     private final Converter<ClientDto, Client> clientDtoMapper;
+    private final Converter<Client, ClientDao> clientDaoMapper;
+
+    private final MailService mailService;
 
     private final JwtTokenUtil jwtTokenUtil;
 
@@ -37,16 +45,23 @@ public class AccessServiceImpl implements AccessService {
     @Autowired
     public AccessServiceImpl(ClientRepository clientRepository,
                              TokenRepository tokenRepository,
+                             LinkRepository linkRepository,
                              Converter<Client, ClientDto> clientMapper,
                              Converter<ClientDto, Client> clientDtoMapper,
+                             Converter<Client, ClientDao> clientDaoMapper,
+                             MailService mailService,
                              JwtTokenUtil jwtTokenUtil){
         this.clientRepository = clientRepository;
-        this.jwtTokenUtil=jwtTokenUtil;
+        this.linkRepository = linkRepository;
+        this.tokenRepository=tokenRepository;
 
         this.clientMapper=clientMapper;
         this.clientDtoMapper=clientDtoMapper;
+        this.clientDaoMapper = clientDaoMapper;
 
-        this.tokenRepository=tokenRepository;
+        this.mailService = mailService;
+
+        this.jwtTokenUtil=jwtTokenUtil;
     }
 
     public static byte[] getSHA(String input) throws NoSuchAlgorithmException
@@ -66,6 +81,15 @@ public class AccessServiceImpl implements AccessService {
         return hexString.toString();
     }
 
+    private void createLink(ClientDao client) throws NoSuchAlgorithmException {
+        Long clientId = client.getClientId();
+        String link = toHexString(getSHA(clientId.toString()));
+
+        Link linkEntity = new Link.Builder().id_client(clientId).link(link).client(clientRepository.findClient(clientId)).build();
+        linkRepository.save(linkEntity);
+
+        mailService.sendEmailActivation(client, link);
+    }
 
     @Override
     public boolean register(ClientDto client) {
@@ -77,7 +101,10 @@ public class AccessServiceImpl implements AccessService {
                 client = new ClientDto.Builder(client).password(toHexString(getSHA(client.getPassword()))).build();
                 Client createClient = clientDtoMapper.convert(client);
 
-                clientRepository.save(createClient);
+                Client newClient = clientRepository.save(new Client.Builder(createClient).activatedEmail(false).build());
+                ClientDao clientDao = clientDaoMapper.convert(newClient);
+
+                createLink(clientDao);
                 return true;
             } catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();
@@ -97,10 +124,16 @@ public class AccessServiceImpl implements AccessService {
         if(checkEmail.isPresent()){
             try {
                 Client client = checkEmail.get();
+                ClientDao clientDao = clientDaoMapper.convert(client);
+
+                if(!clientDao.getActivatedEmail()){
+                    return result;
+                }
+
                 if(toHexString(getSHA(password)).equals(client.getPassword())){
-                    String token = jwtTokenUtil.generateToken(checkEmail.get());
-                    tokenRepository.save(new Token(client.getClientId(),token));
-                    LOGGER.info("Token: "+token);
+                    String token = jwtTokenUtil.generateToken(clientDao);
+                    tokenRepository.save(new Token.Builder().userId(clientDao.getClientId()).token(token).client(client).build());
+
                     result = new AuthenticationResult(token);
                     return result;
                 }
@@ -116,5 +149,23 @@ public class AccessServiceImpl implements AccessService {
     @Override
     public void removeHashSession(Long userId) {
         tokenRepository.removeSession(userId);
+    }
+
+    @Override
+    public Boolean completeEmailVerification(String link) {
+        boolean result = false;
+        Optional<Long> clientId = Optional.ofNullable(linkRepository.findClientIdByLink(link));
+
+        if(clientId.isPresent()){
+            Client clientEntity = clientRepository.findClient(clientId.get());
+            ClientDao client = clientDaoMapper.convert(clientEntity);
+
+            clientRepository.verifyClientEmail(client.getClientId());
+            linkRepository.deleteEmailVerificationLink(client.getClientId());
+
+            result = true;
+        }
+
+        return result;
     }
 }

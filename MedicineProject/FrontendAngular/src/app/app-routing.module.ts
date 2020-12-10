@@ -7,6 +7,7 @@ import {DosageComponent} from './components/dosage/dosage.component';
 import {AuthGuard} from './services/auth/auth-guard.guard';
 import {MedicinesComponent} from './components/medicines/medicines.component';
 import {ChartComponent} from './components/chart/chart.component';
+import {ConfirmEmailComponent} from './components/confirm-email/confirm-email.component';
 
 const routes: Routes = [{
   path: '',
@@ -29,6 +30,9 @@ const routes: Routes = [{
   path: 'chart',
   component: ChartComponent,
   canActivate: [AuthGuard]
+}, {
+  path: 'register/confirm-email/:id',
+  component: ConfirmEmailComponent
 }];
 
 @NgModule({

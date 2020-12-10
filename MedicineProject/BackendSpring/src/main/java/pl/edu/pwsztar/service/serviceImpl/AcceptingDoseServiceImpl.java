@@ -3,6 +3,8 @@ package pl.edu.pwsztar.service.serviceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import pl.edu.pwsztar.domain.dao.ClientDao;
+import pl.edu.pwsztar.domain.dao.CureDao;
 import pl.edu.pwsztar.domain.dto.cure.ClientDoseInfoDto;
 import pl.edu.pwsztar.domain.dto.cure.ClientDoseReportDto;
 import pl.edu.pwsztar.domain.dto.cure.ClientInfo;
@@ -17,6 +19,8 @@ import pl.edu.pwsztar.domain.repository.AcceptedDoseRepository;
 import pl.edu.pwsztar.domain.repository.ClientRepository;
 import pl.edu.pwsztar.domain.repository.CureRepository;
 import pl.edu.pwsztar.service.AcceptingDoseService;
+import pl.edu.pwsztar.service.MailService;
+import pl.edu.pwsztar.service.serviceImpl.global.GlobalVariables;
 
 import javax.mail.internet.InternetAddress;
 import java.text.SimpleDateFormat;
@@ -29,65 +33,31 @@ public class AcceptingDoseServiceImpl implements AcceptingDoseService {
     private final CureRepository cureRepository;
 
     private final Converter<List<ClientDose>, List<Cure>> clientDoseMapper;
+    private final Converter<Client, ClientDao> clientDaoMapper;
+    private final Converter<Cure, CureDao> cureDaoMapper;
+
+    private final MailService mailService;
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-
-    private static final Integer notificationTime = 10;
-    private static final Integer maxDelayTime = 1;
-    private static final Integer testAddingTime = 38;
 
 
     @Autowired
     public AcceptingDoseServiceImpl(AcceptedDoseRepository doseRepository,
                                     ClientRepository clientRepository,
                                     CureRepository cureRepository,
-                                    Converter<List<ClientDose>, List<Cure>> clientDoseMapper){
+                                    Converter<List<ClientDose>, List<Cure>> clientDoseMapper,
+                                    Converter<Client, ClientDao> clientDaoMapper,
+                                    Converter<Cure, CureDao> cureDaoMapper,
+                                    MailService mailService){
         this.doseRepository = doseRepository;
         this.clientRepository = clientRepository;
         this.cureRepository = cureRepository;
 
         this.clientDoseMapper = clientDoseMapper;
-    }
+        this.clientDaoMapper = clientDaoMapper;
+        this.cureDaoMapper = cureDaoMapper;
 
-
-    public static void sendNotification(Client client, Cure cure){
-        String email = "medicine.notification@gmail.com";
-        String password = "198343583";
-
-        Properties prop = new Properties();
-        prop.put("mail.smtp.host", "smtp.gmail.com");
-        prop.put("mail.smtp.port", "587");
-        prop.put("mail.smtp.auth", "true");
-        prop.put("mail.smtp.starttls.enable", "true");
-
-        javax.mail.Session session = javax.mail.Session.getInstance(prop,
-                new javax.mail.Authenticator() {
-                    @Override
-                    protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
-                        return new javax.mail.PasswordAuthentication(email, password);
-                    }
-                });
-
-        Calendar cal = GregorianCalendar.getInstance();
-        cal.add(Calendar.MINUTE, notificationTime + testAddingTime);
-
-        try {
-            javax.mail.Message message = new javax.mail.internet.MimeMessage(session);
-            message.setFrom(new InternetAddress(email));
-            message.setRecipients(
-                    javax.mail.Message.RecipientType.TO,
-                    InternetAddress.parse(client.getEmail())
-            );
-            message.setSubject("Medicine: " +cure.getName());
-            message.setText("Take your medicine called:" + cure.getName() +
-                    "\nin dose number: " + cure.getDoseNumber() +
-                    "\nYou have to take your cure in " + dateFormat.format(new Date()).substring(0,11) + cal.get(Calendar.HOUR) + ':' + cal.get(Calendar.MINUTE));
-
-            javax.mail.Transport.send(message);
-
-        } catch (javax.mail.MessagingException e) {
-            e.printStackTrace();
-        }
+        this.mailService = mailService;
     }
 
     @Override
@@ -98,7 +68,7 @@ public class AcceptingDoseServiceImpl implements AcceptingDoseService {
         String currentTime = dateFormat.format(new Date());
         Optional<AcceptedDose> checkAcceptedDose = Optional.ofNullable(doseRepository.findInfo(client.getClientId(),cure.getCureId(),currentTime.substring(0,13)));
 
-        int minutes = (Integer.parseInt(currentTime.substring(11,13)) * 60) + Integer.parseInt(currentTime.substring(14,16)) + testAddingTime;
+        int minutes = (Integer.parseInt(currentTime.substring(11,13)) * 60) + Integer.parseInt(currentTime.substring(14,16)) + GlobalVariables.getInstance().testAddingTime;
         int cureTime = cure.getDoseTimestamp()*60;
 
 
@@ -106,7 +76,7 @@ public class AcceptingDoseServiceImpl implements AcceptingDoseService {
             AcceptedDose acceptedDose = new AcceptedDose.Builder().id(new AcceptedDoseKey(client.getClientId(),cure.getCureId(),currentTime)).accepted(true).delayed(false).client(client).cure(cure).date(currentTime).build();
                 doseRepository.save(acceptedDose);
                 return true;
-        } else if (checkAcceptedDose.isEmpty() && minutes%cureTime < maxDelayTime && minutes%cureTime > 0){
+        } else if (checkAcceptedDose.isEmpty() && minutes%cureTime < GlobalVariables.getInstance().maxDelayTime && minutes%cureTime > 0){
             AcceptedDose acceptedDose = new AcceptedDose.Builder().id(new AcceptedDoseKey(client.getClientId(),cure.getCureId(),currentTime)).accepted(true).delayed(true).client(client).cure(cure).date(currentTime).build();
                 doseRepository.save(acceptedDose);
                 return true;
@@ -151,7 +121,7 @@ public class AcceptingDoseServiceImpl implements AcceptingDoseService {
     public void acceptingDose(){
         String currentTime = dateFormat.format(new Date());
         int minute = Integer.parseInt(currentTime.substring(14,16));
-        int minutes = (Integer.parseInt(currentTime.substring(11,13)) * 60) + minute + testAddingTime;
+        int minutes = (Integer.parseInt(currentTime.substring(11,13)) * 60) + minute + GlobalVariables.getInstance().testAddingTime;
 
 
         List<Client> clients = clientRepository.findAll();
@@ -162,11 +132,14 @@ public class AcceptingDoseServiceImpl implements AcceptingDoseService {
                 Optional<AcceptedDose> checkAcceptedDose = Optional.ofNullable(doseRepository.findInfo(client.getClientId(),cure.getCureId(),currentTime.substring(0,13)));
                 int cureTime = cure.getDoseTimestamp()*60;
 
-                if((minutes+notificationTime)%cureTime==0){
-                    sendNotification(client,cure);
+                if((minutes+GlobalVariables.getInstance().notificationTime)%cureTime==0){
+                    ClientDao clientDao = clientDaoMapper.convert(client);
+                    CureDao cureDao = cureDaoMapper.convert(cure);
+
+                    mailService.sendNotification(clientDao,cureDao);
                 }
 
-                if(minutes%cureTime == maxDelayTime && checkAcceptedDose.isEmpty()){
+                if(minutes%cureTime == GlobalVariables.getInstance().maxDelayTime && checkAcceptedDose.isEmpty()){
                     doseRepository.save(new AcceptedDose.Builder().id(new AcceptedDoseKey(client.getClientId(),cure.getCureId(),currentTime)).accepted(false).delayed(false).client(client).cure(cure).date(currentTime).build());
                 }
             }

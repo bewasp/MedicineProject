@@ -15,7 +15,7 @@ import pl.edu.pwsztar.service.AccessService;
 @RequestMapping(value = "/api/user")
 public class AccessApiController {
 
-    private AccessService accessService;
+    private final AccessService accessService;
 
     @Autowired
     public AccessApiController(AccessService accessService){
@@ -54,5 +54,15 @@ public class AccessApiController {
         accessService.removeHashSession(userId);
 
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @CrossOrigin
+    @GetMapping(value = "/register/confirm-email/{link}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<Boolean> emailVerification(@PathVariable String link){
+        Boolean result = false;
+
+        result = accessService.completeEmailVerification(link);
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }

@@ -15,9 +15,9 @@ import java.util.Optional;
 public class CureServiceImpl implements CureService {
     private final ClientDoseService clientDoseService;
 
-    private Converter<CureDto, Cure> cureMapper;
+    private final Converter<CureDto, Cure> cureMapper;
 
-    private CureRepository cureRepository;
+    private final CureRepository cureRepository;
 
     @Autowired
     public CureServiceImpl(ClientDoseService clientDoseService,
