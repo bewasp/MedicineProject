@@ -2,20 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2414057-0c00-4ea6-a4e7-e0a07b6829cf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/MedicineProject.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/entity/AcceptedDose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/entity/AcceptedDose.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/repository/AcceptedDoseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/repository/AcceptedDoseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/AcceptingDoseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/AcceptingDoseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/MailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/MailServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/global/GlobalVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/global/GlobalVariables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/AcceptedDose$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/AcceptedDose$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/AcceptedDose.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/AcceptedDose.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/repository/AcceptedDoseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/repository/AcceptedDoseRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/AcceptingDoseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/AcceptingDoseServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/AccessServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/AccessServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/MailServiceImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/MailServiceImpl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/MailServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/MailServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/global/GlobalVariables.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/global/GlobalVariables.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PostgreSQL_11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../medicine.SQL" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +62,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../tests/liczby zespolone" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -125,7 +120,8 @@
       <workItem from="1607550027559" duration="3447000" />
       <workItem from="1607553519431" duration="819000" />
       <workItem from="1607554352595" duration="301000" />
-      <workItem from="1607554664072" duration="14861000" />
+      <workItem from="1607554664072" duration="15261000" />
+      <workItem from="1607618703521" duration="1070000" />
     </task>
     <task id="LOCAL-00001" summary="init backend part">
       <created>1602927966000</created>
@@ -183,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607564606772</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Accepting dose time - expanded logic">
+      <created>1607603104459</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1607603104459</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,7 +201,8 @@
     <MESSAGE value="accepting dose" />
     <MESSAGE value="changed response type" />
     <MESSAGE value="email verification + changed project structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="email verification + changed project structure" />
+    <MESSAGE value="Accepting dose time - expanded logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Accepting dose time - expanded logic" />
   </component>
   <component name="WindowStateProjectService">
     <state x="726" y="63" key="#Auto_Import" timestamp="1607559789747">
@@ -229,46 +233,46 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="210" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602929310307" />
-    <state x="473" y="88" key="CommitChangelistDialog2" timestamp="1607564601659">
+    <state x="473" y="88" key="CommitChangelistDialog2" timestamp="1607603095099">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="473" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1607564601659" />
+    <state x="473" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1607603095099" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1607601203921">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1607601203921" />
-    <state width="1877" height="269" key="GridCell.Tab.0.bottom" timestamp="1607602630409">
+    <state width="1877" height="269" key="GridCell.Tab.0.bottom" timestamp="1607603130777">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="269" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607602630409" />
-    <state width="1877" height="269" key="GridCell.Tab.0.center" timestamp="1607602630408">
+    <state width="1877" height="269" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607603130777" />
+    <state width="1877" height="269" key="GridCell.Tab.0.center" timestamp="1607603130777">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="269" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607602630408" />
-    <state width="1877" height="269" key="GridCell.Tab.0.left" timestamp="1607602630408">
+    <state width="1877" height="269" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607603130777" />
+    <state width="1877" height="269" key="GridCell.Tab.0.left" timestamp="1607603130777">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="269" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607602630408" />
-    <state width="1877" height="269" key="GridCell.Tab.0.right" timestamp="1607602630409">
+    <state width="1877" height="269" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607603130776" />
+    <state width="1877" height="269" key="GridCell.Tab.0.right" timestamp="1607603130777">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="269" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607602630409" />
-    <state width="1877" height="269" key="GridCell.Tab.1.bottom" timestamp="1607602630409">
+    <state width="1877" height="269" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607603130777" />
+    <state width="1877" height="269" key="GridCell.Tab.1.bottom" timestamp="1607603130777">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="269" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607602630409" />
-    <state width="1877" height="269" key="GridCell.Tab.1.center" timestamp="1607602630409">
+    <state width="1877" height="269" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607603130777" />
+    <state width="1877" height="269" key="GridCell.Tab.1.center" timestamp="1607603130777">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="269" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607602630409" />
-    <state width="1877" height="269" key="GridCell.Tab.1.left" timestamp="1607602630409">
+    <state width="1877" height="269" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607603130777" />
+    <state width="1877" height="269" key="GridCell.Tab.1.left" timestamp="1607603130777">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="269" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607602630409" />
-    <state width="1877" height="269" key="GridCell.Tab.1.right" timestamp="1607602630409">
+    <state width="1877" height="269" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607603130777" />
+    <state width="1877" height="269" key="GridCell.Tab.1.right" timestamp="1607603130777">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="269" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607602630409" />
+    <state width="1877" height="269" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607603130777" />
     <state x="440" y="94" key="SettingsEditor" timestamp="1607554653920">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -277,10 +281,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="626" y="224" key="VCS.ChangeListViewerDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607550685839" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607564616601">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607603102432">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607564616601" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607603102432" />
     <state x="752" y="421" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1602927928503">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
