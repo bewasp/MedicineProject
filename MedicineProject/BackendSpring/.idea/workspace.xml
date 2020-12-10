@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2414057-0c00-4ea6-a4e7-e0a07b6829cf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/MedicineProject.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PostgreSQL_11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../medicine.SQL" beforeDir="false" />
-    </list>
+    <list default="true" id="d2414057-0c00-4ea6-a4e7-e0a07b6829cf" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -121,7 +111,7 @@
       <workItem from="1607553519431" duration="819000" />
       <workItem from="1607554352595" duration="301000" />
       <workItem from="1607554664072" duration="15261000" />
-      <workItem from="1607618703521" duration="1070000" />
+      <workItem from="1607618703521" duration="1279000" />
     </task>
     <task id="LOCAL-00001" summary="init backend part">
       <created>1602927966000</created>
