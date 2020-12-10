@@ -22,7 +22,6 @@ import pl.edu.pwsztar.service.AcceptingDoseService;
 import pl.edu.pwsztar.service.MailService;
 import pl.edu.pwsztar.service.serviceImpl.global.GlobalVariables;
 
-import javax.mail.internet.InternetAddress;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -71,18 +70,39 @@ public class AcceptingDoseServiceImpl implements AcceptingDoseService {
         int minutes = (Integer.parseInt(currentTime.substring(11,13)) * 60) + Integer.parseInt(currentTime.substring(14,16)) + GlobalVariables.getInstance().testAddingTime;
         int cureTime = cure.getDoseTimestamp()*60;
 
-
-        if(checkAcceptedDose.isEmpty() && minutes%cureTime == 0){
-            AcceptedDose acceptedDose = new AcceptedDose.Builder().id(new AcceptedDoseKey(client.getClientId(),cure.getCureId(),currentTime)).accepted(true).delayed(false).client(client).cure(cure).date(currentTime).build();
-                doseRepository.save(acceptedDose);
-                return true;
-        } else if (checkAcceptedDose.isEmpty() && minutes%cureTime < GlobalVariables.getInstance().maxDelayTime && minutes%cureTime > 0){
-            AcceptedDose acceptedDose = new AcceptedDose.Builder().id(new AcceptedDoseKey(client.getClientId(),cure.getCureId(),currentTime)).accepted(true).delayed(true).client(client).cure(cure).date(currentTime).build();
-                doseRepository.save(acceptedDose);
-                return true;
+        AcceptedDose acceptedDose = null;
+        if(checkAcceptedDose.isEmpty()) {
+            acceptedDose =
+                    new AcceptedDose.Builder()
+                            .id(new AcceptedDoseKey(client.getClientId(), cure.getCureId(), currentTime))
+                            .client(client)
+                            .cure(cure)
+                            .build();
         }
 
-        return false;
+        boolean result = false;
+
+        if(checkAcceptedDose.isEmpty() && (minutes%cureTime > 0 && minutes%cureTime >= cureTime-GlobalVariables.getInstance().acceptingTime)){
+            acceptedDose =
+                    new AcceptedDose.Builder(acceptedDose)
+                        .accepted(true)
+                        .delayed(false)
+                        .build();
+
+            doseRepository.save(acceptedDose);
+            result = true;
+        } else if (checkAcceptedDose.isEmpty() && minutes%cureTime < GlobalVariables.getInstance().maxDelayTime && minutes%cureTime >= 0){
+            acceptedDose =
+                    new AcceptedDose.Builder(acceptedDose)
+                            .accepted(true)
+                            .delayed(true)
+                            .build();
+
+            doseRepository.save(acceptedDose);
+            result = true;
+        }
+
+        return result;
     }
 
     @Override
@@ -99,15 +119,15 @@ public class AcceptingDoseServiceImpl implements AcceptingDoseService {
             ClientDoseReportDto report = null;
             if(acceptedDose.isAccepted() && !acceptedDose.isDelayed()){
                 accepted++;
-                report = new ClientDoseReportDto.Builder().name(acceptedDose.getCure().getName()).acceptedDose("Accepted").date(acceptedDose.getDate()).build();
+                report = new ClientDoseReportDto.Builder().name(acceptedDose.getCure().getName()).acceptedDose("Accepted").date(acceptedDose.getId().getDate()).build();
             }
             if(acceptedDose.isAccepted() && acceptedDose.isDelayed()){
                 delayed++;
-                report = new ClientDoseReportDto.Builder().name(acceptedDose.getCure().getName()).acceptedDose("Delayed").date(acceptedDose.getDate()).build();
+                report = new ClientDoseReportDto.Builder().name(acceptedDose.getCure().getName()).acceptedDose("Delayed").date(acceptedDose.getId().getDate()).build();
             }
             if(!acceptedDose.isAccepted() && !acceptedDose.isDelayed()){
                 declined++;
-                report = new ClientDoseReportDto.Builder().name(acceptedDose.getCure().getName()).acceptedDose("Declined").date(acceptedDose.getDate()).build();
+                report = new ClientDoseReportDto.Builder().name(acceptedDose.getCure().getName()).acceptedDose("Declined").date(acceptedDose.getId().getDate()).build();
             }
             reportList.add(report);
         }
@@ -123,11 +143,11 @@ public class AcceptingDoseServiceImpl implements AcceptingDoseService {
         int minute = Integer.parseInt(currentTime.substring(14,16));
         int minutes = (Integer.parseInt(currentTime.substring(11,13)) * 60) + minute + GlobalVariables.getInstance().testAddingTime;
 
-
         List<Client> clients = clientRepository.findAll();
 
         for(Client client: clients){
             List<Cure> cures = clientDoseMapper.convert(client.getDose());
+
             for(Cure cure: cures){
                 Optional<AcceptedDose> checkAcceptedDose = Optional.ofNullable(doseRepository.findInfo(client.getClientId(),cure.getCureId(),currentTime.substring(0,13)));
                 int cureTime = cure.getDoseTimestamp()*60;
@@ -140,7 +160,7 @@ public class AcceptingDoseServiceImpl implements AcceptingDoseService {
                 }
 
                 if(minutes%cureTime == GlobalVariables.getInstance().maxDelayTime && checkAcceptedDose.isEmpty()){
-                    doseRepository.save(new AcceptedDose.Builder().id(new AcceptedDoseKey(client.getClientId(),cure.getCureId(),currentTime)).accepted(false).delayed(false).client(client).cure(cure).date(currentTime).build());
+                    doseRepository.save(new AcceptedDose.Builder().id(new AcceptedDoseKey(client.getClientId(),cure.getCureId(),currentTime)).accepted(false).delayed(false).client(client).cure(cure).build());
                 }
             }
         }

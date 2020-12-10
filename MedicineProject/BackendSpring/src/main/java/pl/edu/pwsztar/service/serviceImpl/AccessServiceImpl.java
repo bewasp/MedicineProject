@@ -83,7 +83,7 @@ public class AccessServiceImpl implements AccessService {
 
     private void createLink(ClientDao client) throws NoSuchAlgorithmException {
         Long clientId = client.getClientId();
-        String link = toHexString(getSHA(clientId.toString()));
+        String link = toHexString(getSHA(client.toString()));
 
         Link linkEntity = new Link.Builder().id_client(clientId).link(link).client(clientRepository.findClient(clientId)).build();
         linkRepository.save(linkEntity);

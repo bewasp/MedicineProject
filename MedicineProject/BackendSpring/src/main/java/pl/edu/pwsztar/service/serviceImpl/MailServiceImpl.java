@@ -19,6 +19,8 @@ import java.util.Properties;
 
 @Service
 public class MailServiceImpl implements MailService {
+    private static final String domain = "http://localhost:4200/";
+
     private static final String email = "medicine.notification@gmail.com";
     private static final String password = "198343583";
 
@@ -69,12 +71,14 @@ public class MailServiceImpl implements MailService {
         Calendar cal = GregorianCalendar.getInstance();
         cal.add(Calendar.MINUTE, GlobalVariables.getInstance().notificationTime + GlobalVariables.getInstance().testAddingTime);
 
+        String cureTime = dateFormat.format(new Date()).substring(0,11) + cal.get(Calendar.HOUR) + ':' + cal.get(Calendar.MINUTE);
+
         try {
             toClient = client.getEmail();
             subject = "Medicine: " +cure.getName();
             text =  "Take your medicine called:" + cure.getName() +
                     "\nin dose number: " + cure.getDoseNumber() +
-                    "\nYou have to take your cure in " + dateFormat.format(new Date()).substring(0,11) + cal.get(Calendar.HOUR) + ':' + cal.get(Calendar.MINUTE);
+                    "\nYou have to take your cure in " + cureTime;
 
             Message message = config(toClient, subject, text);
 
@@ -95,7 +99,7 @@ public class MailServiceImpl implements MailService {
             toClient = client.getEmail();
             subject = "Medicine App: Account activation";
             text = "Please, click this link to verify your email\n:" +
-                    "http://localhost:4200/register/confirm-email/" + link;
+                    domain + "register/confirm-email/" + link;
 
             Message message = config(toClient, subject, text);
 

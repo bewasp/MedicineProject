@@ -2,61 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2414057-0c00-4ea6-a4e7-e0a07b6829cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/dao/ClientDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/dao/CureDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/entity/Link.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/mapper/ClientDaoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/mapper/CureDaoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/repository/LinkRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/MailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/MailServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/global/GlobalVariables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/controller/AccessApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/controller/AccessApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/entity/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/entity/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/entity/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/entity/Token.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/repository/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/repository/ClientRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/repository/TokenRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/repository/TokenRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/token/JwtTokenUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/token/JwtTokenUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/AccessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/AccessService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/entity/AcceptedDose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/entity/AcceptedDose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/repository/AcceptedDoseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/repository/AcceptedDoseRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/AcceptingDoseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/AcceptingDoseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/AccessServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/AccessServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/CureServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/CureServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/controller/MedicineApiController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/dto/AcceptedDoseDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/dto/ClientDoseDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/dto/ClientDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/dto/CureDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/AcceptedDose$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/MailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/MailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/global/GlobalVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/global/GlobalVariables.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/AcceptedDose$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/AcceptedDose$Builder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/AcceptedDose.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/AcceptedDose.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/Client$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/Client$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/ClientDose$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/ClientDose$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/ClientDose$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/ClientDose.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/ClientDose.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/Cure$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/Cure$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/Cure.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/Cure.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/key/AcceptedDoseKey.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/key/AcceptedDoseKey.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/key/ClientDoseKey.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/key/ClientDoseKey.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/mapper/AcceptedDoseMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/mapper/AcceptedDoseMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/mapper/ClientDoseMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/mapper/ClientDoseMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/mapper/ClientMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/mapper/ClientMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/mapper/ClientPersonalMapper.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/repository/AcceptedDoseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/repository/AcceptedDoseRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/repository/ClientDoseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/repository/ClientDoseRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/repository/ClientRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/repository/ClientRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/repository/CureRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/repository/CureRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/MedicineService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/MedicineServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontendAngular/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontendAngular/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/AcceptingDoseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/AcceptingDoseServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/AccessServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/AccessServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/MailServiceImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/MailServiceImpl$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/MailServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/MailServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/global/GlobalVariables.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/global/GlobalVariables.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +67,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../tests/liczby zespolone" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -166,7 +125,7 @@
       <workItem from="1607550027559" duration="3447000" />
       <workItem from="1607553519431" duration="819000" />
       <workItem from="1607554352595" duration="301000" />
-      <workItem from="1607554664072" duration="9742000" />
+      <workItem from="1607554664072" duration="14861000" />
     </task>
     <task id="LOCAL-00001" summary="init backend part">
       <created>1602927966000</created>
@@ -217,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604246495593</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="email verification + changed project structure">
+      <created>1607564606772</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1607564606772</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +197,8 @@
     <MESSAGE value="data operations" />
     <MESSAGE value="accepting dose" />
     <MESSAGE value="changed response type" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed response type" />
+    <MESSAGE value="email verification + changed project structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="email verification + changed project structure" />
   </component>
   <component name="WindowStateProjectService">
     <state x="726" y="63" key="#Auto_Import" timestamp="1607559789747">
@@ -262,46 +229,46 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="210" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602929310307" />
-    <state x="473" y="88" key="CommitChangelistDialog2" timestamp="1604246493352">
+    <state x="473" y="88" key="CommitChangelistDialog2" timestamp="1607564601659">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="473" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1604246493352" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1607553395496">
+    <state x="473" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1607564601659" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1607601203921">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1607553395496" />
-    <state width="1877" height="278" key="GridCell.Tab.0.bottom" timestamp="1607564376878">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1607601203921" />
+    <state width="1877" height="269" key="GridCell.Tab.0.bottom" timestamp="1607602630409">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607564376878" />
-    <state width="1877" height="278" key="GridCell.Tab.0.center" timestamp="1607564376877">
+    <state width="1877" height="269" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607602630409" />
+    <state width="1877" height="269" key="GridCell.Tab.0.center" timestamp="1607602630408">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607564376877" />
-    <state width="1877" height="278" key="GridCell.Tab.0.left" timestamp="1607564376877">
+    <state width="1877" height="269" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607602630408" />
+    <state width="1877" height="269" key="GridCell.Tab.0.left" timestamp="1607602630408">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607564376877" />
-    <state width="1877" height="278" key="GridCell.Tab.0.right" timestamp="1607564376878">
+    <state width="1877" height="269" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607602630408" />
+    <state width="1877" height="269" key="GridCell.Tab.0.right" timestamp="1607602630409">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607564376878" />
-    <state width="1877" height="278" key="GridCell.Tab.1.bottom" timestamp="1607564376878">
+    <state width="1877" height="269" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607602630409" />
+    <state width="1877" height="269" key="GridCell.Tab.1.bottom" timestamp="1607602630409">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607564376878" />
-    <state width="1877" height="278" key="GridCell.Tab.1.center" timestamp="1607564376878">
+    <state width="1877" height="269" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607602630409" />
+    <state width="1877" height="269" key="GridCell.Tab.1.center" timestamp="1607602630409">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607564376878" />
-    <state width="1877" height="278" key="GridCell.Tab.1.left" timestamp="1607564376878">
+    <state width="1877" height="269" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607602630409" />
+    <state width="1877" height="269" key="GridCell.Tab.1.left" timestamp="1607602630409">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607564376878" />
-    <state width="1877" height="278" key="GridCell.Tab.1.right" timestamp="1607564376878">
+    <state width="1877" height="269" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607602630409" />
+    <state width="1877" height="269" key="GridCell.Tab.1.right" timestamp="1607602630409">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="278" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607564376878" />
+    <state width="1877" height="269" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607602630409" />
     <state x="440" y="94" key="SettingsEditor" timestamp="1607554653920">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -310,10 +277,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="626" y="224" key="VCS.ChangeListViewerDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607550685839" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607551204966">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607564616601">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607551204966" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607564616601" />
     <state x="752" y="421" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1602927928503">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

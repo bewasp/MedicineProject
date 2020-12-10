@@ -5,7 +5,8 @@ public class GlobalVariables {
 
     public final Integer notificationTime = 10;
     public final Integer maxDelayTime = 1;
-    public final Integer testAddingTime = 42;
+    public final Integer testAddingTime = 30;
+    public final Integer acceptingTime = 10;
 
 
     public static GlobalVariables getInstance() {

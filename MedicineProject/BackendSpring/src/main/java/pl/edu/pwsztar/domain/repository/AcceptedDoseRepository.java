@@ -9,6 +9,6 @@ import pl.edu.pwsztar.domain.entity.key.AcceptedDoseKey;
 
 @Repository
 public interface AcceptedDoseRepository extends JpaRepository<AcceptedDose, AcceptedDoseKey> , CrudRepository<AcceptedDose,AcceptedDoseKey> {
-    @Query("SELECT dose FROM AcceptedDose dose WHERE dose.client.clientId = ?1 AND dose.cure.cureId = ?2 AND SUBSTRING(dose.date, 1 ,13)= ?3")
+    @Query("SELECT dose FROM AcceptedDose dose WHERE dose.id.clientId = ?1 AND dose.id.cureId = ?2 AND SUBSTRING(dose.id.doseDate, 1 ,13)= ?3")
     AcceptedDose findInfo(Long clientId, Long cureId, String date);
 }
