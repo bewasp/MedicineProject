@@ -1,7 +1,5 @@
-.chart-diplay{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 3em;
+.chart-display {
+  display: flex;
 }
 
 .flex-container {
@@ -20,7 +18,7 @@
 
 .items {
   color: white;
-  width: 700px;
+  width: 500px;
   background: rgba(0,0,0,0.5);
   border-radius: 25px;
 }
