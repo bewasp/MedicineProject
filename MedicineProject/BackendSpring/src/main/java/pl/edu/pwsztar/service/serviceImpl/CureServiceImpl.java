@@ -35,8 +35,7 @@ public class CureServiceImpl implements CureService {
 
         if(findCure.isEmpty()){
             newCure = cureMapper.convert(cure);
-            cureRepository.save(newCure);
-            newCure = cureRepository.findCure(cure.getName(), cure.getDailyDose(), cure.getDoseNumber(), cure.getDoseTimestamp());
+            newCure = cureRepository.save(newCure);
         }
 
         Cure finalNewCure = newCure;

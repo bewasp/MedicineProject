@@ -36,6 +36,7 @@ public class Client implements Serializable {
     }
 
     public Client(Builder builder) {
+        this.clientId = builder.clientId;
         this.email = builder.email;
         this.name = builder.name;
         this.surname = builder.surname;

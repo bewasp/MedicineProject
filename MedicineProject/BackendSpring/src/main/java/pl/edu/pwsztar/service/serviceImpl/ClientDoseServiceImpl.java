@@ -21,18 +21,16 @@ public class ClientDoseServiceImpl implements ClientDoseService {
     private final ClientRepository clientRepository;
 
     private final Converter<List<Cure>, List<CureDto>> cureListMapper;
-    private final Converter<List<ClientDose>, List<Cure>> clientDoseMapper;
+
 
     @Autowired
     public ClientDoseServiceImpl(ClientDoseRepository clientDoseRepository,
                                  ClientRepository clientRepository,
-                                 Converter<List<Cure>, List<CureDto>> cureListMapper,
-                                 Converter<List<ClientDose>, List<Cure>> clientDoseMapper){
+                                 Converter<List<Cure>, List<CureDto>> cureListMapper){
         this.clientDoseRepository = clientDoseRepository;
         this.clientRepository = clientRepository;
 
         this.cureListMapper = cureListMapper;
-        this.clientDoseMapper = clientDoseMapper;
     }
 
     @Override

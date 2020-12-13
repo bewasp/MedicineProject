@@ -9,6 +9,11 @@ public class AuthenticationDto implements Serializable {
     public AuthenticationDto() {
     }
 
+    public AuthenticationDto(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -16,5 +21,4 @@ public class AuthenticationDto implements Serializable {
     public String getPassword() {
         return password;
     }
-
 }

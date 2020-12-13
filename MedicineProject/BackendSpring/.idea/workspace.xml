@@ -1,7 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2414057-0c00-4ea6-a4e7-e0a07b6829cf" name="Default Changelist" comment="" />
+    <list default="true" id="d2414057-0c00-4ea6-a4e7-e0a07b6829cf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/pl/edu/pwsztar/service/AcceptingDoseServiceTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pl/edu/pwsztar/service/AccessServiceTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pl/edu/pwsztar/service/ClientDoseServiceTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pl/edu/pwsztar/service/CureServiceTest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pl/edu/pwsztar/service/MailServiceTest.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/BackendSpring.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BackendSpring.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/dto/auth/AuthenticationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/dto/auth/AuthenticationDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/entity/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/entity/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/AccessServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/AccessServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/ClientDoseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/ClientDoseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/CureServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/CureServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/global/GlobalVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/global/GlobalVariables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/token/JwtTokenUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/service/serviceImpl/token/JwtTokenUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/BackendSpring.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/WebSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/dto/auth/AuthenticationDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/dto/auth/AuthenticationDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/Client$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/Client$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/domain/entity/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/AccessServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/AccessServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/ClientDoseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/ClientDoseServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/CureServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/CureServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/token/JwtTokenUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/edu/pwsztar/service/serviceImpl/token/JwtTokenUtil.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,6 +39,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="spring-beans.schema" />
         <option value="Class" />
       </list>
     </option>
@@ -82,14 +111,116 @@
       <recent name="E:\szkolenie\Informatyka\Projekty\MedicineProject\MedicineProject\BackendSpring\src\main\java\pl\edu\pwsztar" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+  <component name="RunManager" selected="JUnit.AcceptingDoseServiceTest">
+    <configuration name="AcceptingDoseServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BackendSpring" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="pl.edu.pwsztar.Application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.edu.pwsztar.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.edu.pwsztar.service" />
+      <option name="MAIN_CLASS_NAME" value="pl.edu.pwsztar.service.AcceptingDoseServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AcceptingDoseServiceTest.should accept user's cure in time" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BackendSpring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.edu.pwsztar.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.edu.pwsztar.service" />
+      <option name="MAIN_CLASS_NAME" value="pl.edu.pwsztar.service.AcceptingDoseServiceTest" />
+      <option name="METHOD_NAME" value="should accept user's cure in time" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClientDoseServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BackendSpring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.edu.pwsztar.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.edu.pwsztar.service" />
+      <option name="MAIN_CLASS_NAME" value="pl.edu.pwsztar.service.ClientDoseServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClientDoseServiceTest.should delete a cure for client" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BackendSpring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.edu.pwsztar.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.edu.pwsztar.service" />
+      <option name="MAIN_CLASS_NAME" value="pl.edu.pwsztar.service.ClientDoseServiceTest" />
+      <option name="METHOD_NAME" value="should delete a cure for client" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClientDoseServiceTest.should give all user's cures" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BackendSpring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.edu.pwsztar.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.edu.pwsztar.service" />
+      <option name="MAIN_CLASS_NAME" value="pl.edu.pwsztar.service.ClientDoseServiceTest" />
+      <option name="METHOD_NAME" value="should give all user's cures" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="BackendSpring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.edu.pwsztar.service.AccessServiceTest" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="pl.edu.pwsztar.Application" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.Application" />
+      <item itemvalue="JUnit.ClientDoseServiceTest" />
+      <item itemvalue="JUnit.ClientDoseServiceTest.should delete a cure for client" />
+      <item itemvalue="JUnit.ClientDoseServiceTest.should give all user's cures" />
+      <item itemvalue="JUnit.AcceptingDoseServiceTest.should accept user's cure in time" />
+      <item itemvalue="JUnit.AcceptingDoseServiceTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.AcceptingDoseServiceTest" />
+        <item itemvalue="JUnit.AcceptingDoseServiceTest.should accept user's cure in time" />
+        <item itemvalue="JUnit.ClientDoseServiceTest" />
+        <item itemvalue="JUnit.ClientDoseServiceTest.should give all user's cures" />
+        <item itemvalue="JUnit.ClientDoseServiceTest.should delete a cure for client" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -112,6 +243,8 @@
       <workItem from="1607554352595" duration="301000" />
       <workItem from="1607554664072" duration="15261000" />
       <workItem from="1607618703521" duration="1279000" />
+      <workItem from="1607862090935" duration="11932000" />
+      <workItem from="1607882507994" duration="11079000" />
     </task>
     <task id="LOCAL-00001" summary="init backend part">
       <created>1602927966000</created>
@@ -203,14 +336,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1607554543408" />
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607554616688">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607886666714">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607554616688" />
-    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1607561384482">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607886666714" />
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1607885896323">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1607561384482" />
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1607885896323" />
+    <state x="1128" y="348" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1607866815930">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1128" y="348" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607866815930" />
     <state x="1070" y="209" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1607553908672">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -219,6 +356,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="469" y="444" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607557949899" />
+    <state x="743" y="389" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1607868809375">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="743" y="389" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1607868809375" />
     <state x="210" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602929310307">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -231,38 +372,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1607601203921" />
-    <state width="1877" height="269" key="GridCell.Tab.0.bottom" timestamp="1607603130777">
+    <state width="1877" height="261" key="GridCell.Tab.0.bottom" timestamp="1607892628187">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="269" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607603130777" />
-    <state width="1877" height="269" key="GridCell.Tab.0.center" timestamp="1607603130777">
+    <state width="1877" height="261" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607892628187" />
+    <state width="1877" height="261" key="GridCell.Tab.0.center" timestamp="1607892628187">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="269" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607603130777" />
-    <state width="1877" height="269" key="GridCell.Tab.0.left" timestamp="1607603130777">
+    <state width="1877" height="261" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607892628187" />
+    <state width="1877" height="261" key="GridCell.Tab.0.left" timestamp="1607892628187">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="269" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607603130776" />
-    <state width="1877" height="269" key="GridCell.Tab.0.right" timestamp="1607603130777">
+    <state width="1877" height="261" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607892628187" />
+    <state width="1877" height="261" key="GridCell.Tab.0.right" timestamp="1607892628187">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="269" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607603130777" />
-    <state width="1877" height="269" key="GridCell.Tab.1.bottom" timestamp="1607603130777">
+    <state width="1877" height="261" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607892628187" />
+    <state width="1877" height="269" key="GridCell.Tab.1.bottom" timestamp="1607866960997">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="269" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607603130777" />
-    <state width="1877" height="269" key="GridCell.Tab.1.center" timestamp="1607603130777">
+    <state width="1877" height="269" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607866960997" />
+    <state width="1877" height="269" key="GridCell.Tab.1.center" timestamp="1607866960997">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="269" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607603130777" />
-    <state width="1877" height="269" key="GridCell.Tab.1.left" timestamp="1607603130777">
+    <state width="1877" height="269" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607866960997" />
+    <state width="1877" height="269" key="GridCell.Tab.1.left" timestamp="1607866960997">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="269" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607603130777" />
-    <state width="1877" height="269" key="GridCell.Tab.1.right" timestamp="1607603130777">
+    <state width="1877" height="269" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607866960997" />
+    <state width="1877" height="269" key="GridCell.Tab.1.right" timestamp="1607866960997">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="269" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607603130777" />
+    <state width="1877" height="269" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607866960997" />
     <state x="440" y="94" key="SettingsEditor" timestamp="1607554653920">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -283,9 +424,20 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="735" y="414" key="git4idea.ui.GitResetDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607550688487" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602931521544">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1607886927013">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602931521544" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1607886927013" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pl/edu/pwsztar/domain/dto/cure/ClientDto.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

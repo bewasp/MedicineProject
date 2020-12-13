@@ -25,6 +25,7 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.LinkedHashMap;
 import java.util.Optional;
 
 @Service
@@ -33,35 +34,28 @@ public class AccessServiceImpl implements AccessService {
     private final TokenRepository tokenRepository;
     private final LinkRepository linkRepository;
 
-    private final Converter<Client, ClientDto> clientMapper;
     private final Converter<ClientDto, Client> clientDtoMapper;
     private final Converter<Client, ClientDao> clientDaoMapper;
 
     private final MailService mailService;
-
-    private final JwtTokenUtil jwtTokenUtil;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AccessServiceImpl.class);
     @Autowired
     public AccessServiceImpl(ClientRepository clientRepository,
                              TokenRepository tokenRepository,
                              LinkRepository linkRepository,
-                             Converter<Client, ClientDto> clientMapper,
                              Converter<ClientDto, Client> clientDtoMapper,
                              Converter<Client, ClientDao> clientDaoMapper,
-                             MailService mailService,
-                             JwtTokenUtil jwtTokenUtil){
+                             MailService mailService){
         this.clientRepository = clientRepository;
         this.linkRepository = linkRepository;
         this.tokenRepository=tokenRepository;
 
-        this.clientMapper=clientMapper;
         this.clientDtoMapper=clientDtoMapper;
         this.clientDaoMapper = clientDaoMapper;
 
         this.mailService = mailService;
 
-        this.jwtTokenUtil=jwtTokenUtil;
     }
 
     public static byte[] getSHA(String input) throws NoSuchAlgorithmException
@@ -93,7 +87,6 @@ public class AccessServiceImpl implements AccessService {
 
     @Override
     public boolean register(ClientDto client) {
-
         Optional<Client> checkEmail = Optional.ofNullable(clientRepository.findClientByEmail(client.getEmail()));
 
         if(checkEmail.isEmpty()){
@@ -131,6 +124,8 @@ public class AccessServiceImpl implements AccessService {
                 }
 
                 if(toHexString(getSHA(password)).equals(client.getPassword())){
+                    JwtTokenUtil jwtTokenUtil = new JwtTokenUtil();
+
                     String token = jwtTokenUtil.generateToken(clientDao);
                     tokenRepository.save(new Token.Builder().userId(clientDao.getClientId()).token(token).client(client).build());
 
