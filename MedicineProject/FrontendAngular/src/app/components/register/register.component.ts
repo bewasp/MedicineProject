@@ -3,6 +3,7 @@ import { RegisterModel} from '../../models/register.model';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {UserAccessService} from '../../services/user-access.service';
 import {Router} from "@angular/router";
+import {MessageCodeModel} from '../../enums/message-code.model';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,6 @@ import {Router} from "@angular/router";
 export class RegisterComponent implements OnInit {
   user: RegisterModel = new RegisterModel();
   registerForm: FormGroup;
-  result: boolean;
   hide = true;
 
   constructor(private formBuilder: FormBuilder,
@@ -57,12 +57,16 @@ export class RegisterComponent implements OnInit {
 
   onRegisterSubmit() {
     this.service.register(this.user).subscribe(result => {
-      this.result = result;
-      if (this.result) {
-        alert('Registration success, now you can login!');
-        this.router.navigate(['/login']);
-      } else {
-        alert('This email is already used');
+      switch (result.code) {
+        case MessageCodeModel.EMAIL_IN_USE:
+          alert('This email is already used');
+          break;
+        case MessageCodeModel.REGISTRATION_SUCCESS:
+          alert('Registration success, now you can login!');
+          break;
+        case MessageCodeModel.UNEXPECTED_ERROR:
+          alert('There is some problem');
+          break;
       }
     });
   }

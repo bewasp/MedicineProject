@@ -5,6 +5,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import pl.edu.pwsztar.domain.dao.ClientDao;
 import pl.edu.pwsztar.domain.dao.CureDao;
+import pl.edu.pwsztar.domain.dto.ResponseDto;
 import pl.edu.pwsztar.domain.dto.cure.ClientDoseInfoDto;
 import pl.edu.pwsztar.domain.dto.cure.ClientDoseReportDto;
 import pl.edu.pwsztar.domain.dto.cure.ClientInfo;
@@ -14,6 +15,7 @@ import pl.edu.pwsztar.domain.entity.Client;
 import pl.edu.pwsztar.domain.entity.ClientDose;
 import pl.edu.pwsztar.domain.entity.Cure;
 import pl.edu.pwsztar.domain.entity.key.AcceptedDoseKey;
+import pl.edu.pwsztar.domain.enums.AcceptingCureEnum;
 import pl.edu.pwsztar.domain.mapper.convert.Converter;
 import pl.edu.pwsztar.domain.repository.AcceptedDoseRepository;
 import pl.edu.pwsztar.domain.repository.ClientRepository;
@@ -60,7 +62,7 @@ public class AcceptingDoseServiceImpl implements AcceptingDoseService {
     }
 
     @Override
-    public boolean acceptingCure(Long userId, CureDto cureDto) {
+    public ResponseDto<Void> acceptingCure(Long userId, CureDto cureDto) {
         Client client = clientRepository.findClient(userId);
         Cure cure = cureRepository.findCure(cureDto.getName(),cureDto.getDailyDose(),cureDto.getDoseNumber(),cureDto.getDoseTimestamp());
 
@@ -80,8 +82,6 @@ public class AcceptingDoseServiceImpl implements AcceptingDoseService {
                             .build();
         }
 
-        boolean result = false;
-
         if(checkAcceptedDose.isEmpty() && (minutes%cureTime > 0 && minutes%cureTime >= cureTime-GlobalVariables.getInstance().acceptingTime)){
             acceptedDose =
                     new AcceptedDose.Builder(acceptedDose)
@@ -90,7 +90,7 @@ public class AcceptingDoseServiceImpl implements AcceptingDoseService {
                         .build();
 
             doseRepository.save(acceptedDose);
-            result = true;
+            return new ResponseDto<>(null, AcceptingCureEnum.ACCEPTING_CURE_IN_TIME.getValue());
         } else if (checkAcceptedDose.isEmpty() && minutes%cureTime < GlobalVariables.getInstance().maxDelayTime && minutes%cureTime >= 0){
             acceptedDose =
                     new AcceptedDose.Builder(acceptedDose)
@@ -99,10 +99,10 @@ public class AcceptingDoseServiceImpl implements AcceptingDoseService {
                             .build();
 
             doseRepository.save(acceptedDose);
-            result = true;
+            return new ResponseDto<>(null, AcceptingCureEnum.ACCEPTING_CURE_DELAYED.getValue());
         }
 
-        return result;
+        return new ResponseDto<>(null, AcceptingCureEnum.ACCEPTING_CURE_LATE.getValue());
     }
 
     @Override

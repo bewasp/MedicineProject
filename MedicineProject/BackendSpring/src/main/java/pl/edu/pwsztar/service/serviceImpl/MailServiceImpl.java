@@ -71,7 +71,7 @@ public class MailServiceImpl implements MailService {
         Calendar cal = GregorianCalendar.getInstance();
         cal.add(Calendar.MINUTE, GlobalVariables.getInstance().notificationTime + GlobalVariables.getInstance().testAddingTime);
 
-        String cureTime = dateFormat.format(new Date()).substring(0,11) + cal.get(Calendar.HOUR) + ':' + cal.get(Calendar.MINUTE);
+        String cureTime = dateFormat.format(new Date()).substring(0,11) + cal.get(Calendar.HOUR_OF_DAY) + ':' + cal.get(Calendar.MINUTE);
 
         try {
             toClient = client.getEmail();

@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {LoginModel} from '../../models/login.model';
 import {UserAccessService} from '../../services/user-access.service';
 import {Router} from '@angular/router';
+import {MessageCodeModel} from '../../enums/message-code.model';
 
 @Component({
   selector: 'app-login',
@@ -36,9 +37,20 @@ export class LoginComponent implements OnInit {
 
   onLoginSubmit() {
     this.service.loginMethod(this.user).subscribe(result => {
-      this.result = result;
-      if (this.result) {
-        this.router.navigate(['/']);
+      console.log(result)
+      switch (result) {
+        case MessageCodeModel.LOGIN_SUCCESS:
+          this.router.navigate(['/']);
+          break;
+        case MessageCodeModel.EMAIL_NOT_REGISTERED:
+          alert("This email is not exists");
+          break;
+        case MessageCodeModel.NOT_ACTIVATED_EMAIL:
+          alert("This email is not confirmed");
+          break;
+        case MessageCodeModel.UNEXPECTED_ERROR:
+          alert("There is some error");
+          break;
       }
     });
   }

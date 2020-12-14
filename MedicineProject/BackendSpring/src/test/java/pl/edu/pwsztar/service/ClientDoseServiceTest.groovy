@@ -4,6 +4,7 @@ import pl.edu.pwsztar.domain.dao.ClientDao
 import pl.edu.pwsztar.domain.dto.cure.CureDto
 import pl.edu.pwsztar.domain.entity.Client
 import pl.edu.pwsztar.domain.entity.Cure
+import pl.edu.pwsztar.domain.enums.CureCodeEnum
 import pl.edu.pwsztar.domain.mapper.CureDtoMapper
 import pl.edu.pwsztar.domain.repository.ClientDoseRepository
 import pl.edu.pwsztar.domain.repository.ClientRepository
@@ -41,7 +42,7 @@ class ClientDoseServiceTest extends Specification{
         when:
             def result = clientDoseService.addCureForClient(userId, cureEntity)
         then:
-            result
+            result.code == CureCodeEnum.CURE_CREATED.getValue()
     }
 
     def "should delete a cure for client"(){
@@ -65,9 +66,9 @@ class ClientDoseServiceTest extends Specification{
                     .build()
             clientRepository.findById(userId) >> Optional.of(client)
         when:
-            clientDoseService.deleteClientCure(userId, cureEntity)
+            def result = clientDoseService.deleteClientCure(userId, cureEntity)
         then:
-            noExceptionThrown()
+            result.code == CureCodeEnum.CURE_DELETED.getValue()
     }
 
     def "should give all user's cures"(){

@@ -7,12 +7,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.edu.pwsztar.domain.dao.ClientDao;
+import pl.edu.pwsztar.domain.dto.ResponseDto;
 import pl.edu.pwsztar.domain.dto.auth.AuthenticationDto;
 import pl.edu.pwsztar.domain.dto.auth.AuthenticationResult;
 import pl.edu.pwsztar.domain.dto.cure.ClientDto;
 import pl.edu.pwsztar.domain.entity.Client;
 import pl.edu.pwsztar.domain.entity.Link;
 import pl.edu.pwsztar.domain.entity.Token;
+import pl.edu.pwsztar.domain.enums.AcceptingCureEnum;
+import pl.edu.pwsztar.domain.enums.MessageCodeEnum;
 import pl.edu.pwsztar.domain.mapper.convert.Converter;
 import pl.edu.pwsztar.domain.repository.ClientRepository;
 import pl.edu.pwsztar.domain.repository.LinkRepository;
@@ -86,7 +89,7 @@ public class AccessServiceImpl implements AccessService {
     }
 
     @Override
-    public boolean register(ClientDto client) {
+    public ResponseDto<Void> register(ClientDto client) {
         Optional<Client> checkEmail = Optional.ofNullable(clientRepository.findClientByEmail(client.getEmail()));
 
         if(checkEmail.isEmpty()){
@@ -98,17 +101,17 @@ public class AccessServiceImpl implements AccessService {
                 ClientDao clientDao = clientDaoMapper.convert(newClient);
 
                 createLink(clientDao);
-                return true;
+                return new ResponseDto<>(null, MessageCodeEnum.REGISTRATION_SUCCESS.getValue());
             } catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();
-                return false;
+                return new ResponseDto<>(null, MessageCodeEnum.UNEXPECTED_ERROR.getValue());
             }
         }
-        return false;
+        return new ResponseDto<>(null, MessageCodeEnum.EMAIL_IN_USE.getValue());
     }
 
     @Override
-    public AuthenticationResult authentication(AuthenticationDto user){
+    public ResponseDto<AuthenticationResult> authentication(AuthenticationDto user){
         AuthenticationResult result = null;
         String password = user.getPassword();
 
@@ -120,7 +123,7 @@ public class AccessServiceImpl implements AccessService {
                 ClientDao clientDao = clientDaoMapper.convert(client);
 
                 if(!clientDao.getActivatedEmail()){
-                    return result;
+                    return new ResponseDto<>(null, MessageCodeEnum.NOT_ACTIVATED_EMAIL.getValue());
                 }
 
                 if(toHexString(getSHA(password)).equals(client.getPassword())){
@@ -130,15 +133,15 @@ public class AccessServiceImpl implements AccessService {
                     tokenRepository.save(new Token.Builder().userId(clientDao.getClientId()).token(token).client(client).build());
 
                     result = new AuthenticationResult(token);
-                    return result;
+                    return new ResponseDto<>(result, MessageCodeEnum.LOGIN_SUCCESS.getValue());
                 }
             } catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();
-                return result;
+                return new ResponseDto<>(null, MessageCodeEnum.UNEXPECTED_ERROR.getValue());
             }
         }
 
-        return result;
+        return new ResponseDto<>(null, MessageCodeEnum.EMAIL_NOT_REGISTERED.getValue());
     }
 
     @Override
@@ -147,8 +150,8 @@ public class AccessServiceImpl implements AccessService {
     }
 
     @Override
-    public Boolean completeEmailVerification(String link) {
-        boolean result = false;
+    public ResponseDto<Void> completeEmailVerification(String link) {
+
         Optional<Long> clientId = Optional.ofNullable(linkRepository.findClientIdByLink(link));
 
         if(clientId.isPresent()){
@@ -158,9 +161,9 @@ public class AccessServiceImpl implements AccessService {
             clientRepository.verifyClientEmail(client.getClientId());
             linkRepository.deleteEmailVerificationLink(client.getClientId());
 
-            result = true;
+            return new ResponseDto<>(null, MessageCodeEnum.EMAIL_CONFIRMATION_SUCCESS.getValue());
         }
 
-        return result;
+        return new ResponseDto<>(null, MessageCodeEnum.EMAIL_CONFIRMATION_ERROR.getValue());
     }
 }

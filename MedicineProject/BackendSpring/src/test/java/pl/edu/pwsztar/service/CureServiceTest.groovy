@@ -1,7 +1,9 @@
 package pl.edu.pwsztar.service
 
+import pl.edu.pwsztar.domain.dto.ResponseDto
 import pl.edu.pwsztar.domain.dto.cure.CureDto
 import pl.edu.pwsztar.domain.entity.Cure
+import pl.edu.pwsztar.domain.enums.CureCodeEnum
 import pl.edu.pwsztar.domain.mapper.CureMapper
 import pl.edu.pwsztar.domain.repository.CureRepository
 import pl.edu.pwsztar.service.serviceImpl.CureServiceImpl
@@ -32,11 +34,11 @@ class CureServiceTest extends Specification {
                     .build()
             cureRepository.findCure(_,_,_,_) >> null
             cureRepository.save(_ as Cure) >> cureEntity
-            clientDoseService.addCureForClient(userId, _ as Cure) >> true
+            clientDoseService.addCureForClient(userId, _ as Cure) >> new ResponseDto<Void>(null, CureCodeEnum.CURE_CREATED.getValue())
         when:
-            cureService.createNewCure(userId, cure)
+            def result = cureService.createNewCure(userId, cure)
         then:
-            noExceptionThrown()
+            result.code == CureCodeEnum.CURE_CREATED.getValue()
     }
 
     def "should delete exited cure for client"(){
@@ -56,10 +58,10 @@ class CureServiceTest extends Specification {
                     .doseNumber(cure.getDoseNumber())
                     .build()
             cureRepository.findCure(_,_,_,_) >> cureEntity
-            clientDoseService.deleteClientCure(userId, cureEntity)
+            clientDoseService.deleteClientCure(userId, cureEntity) >> new ResponseDto<Void>(null, CureCodeEnum.CURE_DELETED.getValue())
         when:
-            cureService.deleteCure(userId, cure)
+            def result = cureService.deleteCure(userId, cure)
         then:
-            noExceptionThrown()
+            result.code == CureCodeEnum.CURE_DELETED.getValue()
     }
 }

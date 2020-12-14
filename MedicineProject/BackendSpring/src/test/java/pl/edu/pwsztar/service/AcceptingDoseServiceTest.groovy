@@ -5,6 +5,7 @@ import pl.edu.pwsztar.domain.entity.AcceptedDose
 import pl.edu.pwsztar.domain.entity.Client
 import pl.edu.pwsztar.domain.entity.Cure
 import pl.edu.pwsztar.domain.entity.key.AcceptedDoseKey
+import pl.edu.pwsztar.domain.enums.AcceptingCureEnum
 import pl.edu.pwsztar.domain.mapper.ClientDaoMapper
 import pl.edu.pwsztar.domain.mapper.ClientDoseMapper
 import pl.edu.pwsztar.domain.mapper.CureDaoMapper
@@ -60,7 +61,7 @@ class AcceptingDoseServiceTest extends Specification{
         when:
             def result = acceptingDoseService.acceptingCure(userId, cureDto)
         then:
-            result
+            result.code == AcceptingCureEnum.ACCEPTING_CURE_IN_TIME.getValue()
     }
 
     def "should return user's cures stats"(){

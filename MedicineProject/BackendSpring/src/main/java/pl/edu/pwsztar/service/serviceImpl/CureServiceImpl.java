@@ -2,8 +2,10 @@ package pl.edu.pwsztar.service.serviceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.edu.pwsztar.domain.dto.ResponseDto;
 import pl.edu.pwsztar.domain.dto.cure.CureDto;
 import pl.edu.pwsztar.domain.entity.*;
+import pl.edu.pwsztar.domain.enums.CureCodeEnum;
 import pl.edu.pwsztar.domain.mapper.convert.Converter;
 import pl.edu.pwsztar.domain.repository.*;
 import pl.edu.pwsztar.service.ClientDoseService;
@@ -29,7 +31,7 @@ public class CureServiceImpl implements CureService {
     }
 
     @Override
-    public void createNewCure(Long userId, CureDto cure) {
+    public ResponseDto<Void> createNewCure(Long userId, CureDto cure) {
         Optional<Cure> findCure = Optional.ofNullable(cureRepository.findCure(cure.getName(), cure.getDailyDose(), cure.getDoseNumber(), cure.getDoseTimestamp()));
         Cure newCure = null;
 
@@ -39,12 +41,17 @@ public class CureServiceImpl implements CureService {
         }
 
         Cure finalNewCure = newCure;
-        clientDoseService.addCureForClient(userId, findCure.orElseGet(() -> finalNewCure));
+        return clientDoseService.addCureForClient(userId, findCure.orElseGet(() -> finalNewCure));
     }
 
     @Override
-    public void deleteCure(Long userId, CureDto cure) {
+    public ResponseDto<Void> deleteCure(Long userId, CureDto cure) {
         Optional<Cure> findCure = Optional.ofNullable(cureRepository.findCure(cure.getName(), cure.getDailyDose(), cure.getDoseNumber(), cure.getDoseTimestamp()));
-        findCure.ifPresent(value -> clientDoseService.deleteClientCure(userId, value));
+
+        if(findCure.isPresent()){
+            return clientDoseService.deleteClientCure(userId, findCure.get());
+        }
+
+        return new ResponseDto<>(null, CureCodeEnum.CURE_DELETE_ERROR.getValue());
     }
 }

@@ -2,11 +2,13 @@ package pl.edu.pwsztar.service.serviceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.edu.pwsztar.domain.dto.ResponseDto;
 import pl.edu.pwsztar.domain.dto.cure.CureDto;
 import pl.edu.pwsztar.domain.entity.Client;
 import pl.edu.pwsztar.domain.entity.ClientDose;
 import pl.edu.pwsztar.domain.entity.Cure;
 import pl.edu.pwsztar.domain.entity.key.ClientDoseKey;
+import pl.edu.pwsztar.domain.enums.CureCodeEnum;
 import pl.edu.pwsztar.domain.mapper.convert.Converter;
 import pl.edu.pwsztar.domain.repository.ClientDoseRepository;
 import pl.edu.pwsztar.domain.repository.ClientRepository;
@@ -34,28 +36,33 @@ public class ClientDoseServiceImpl implements ClientDoseService {
     }
 
     @Override
-    public boolean addCureForClient(Long userId, Cure cure) {
+    public ResponseDto<Void> addCureForClient(Long userId, Cure cure) {
         Optional<Client> clientExists = clientRepository.findById(userId);
 
         if (clientExists.isPresent() && cure != null){
             Client client = clientExists.get();
             ClientDose clientDose = new ClientDose.Builder().clientDoseKey(new ClientDoseKey(client.getClientId(),cure.getCureId())).client(client).cure(cure).build();
             clientDoseRepository.save(clientDose);
-            return true;
+
+            return new ResponseDto<>(null, CureCodeEnum.CURE_CREATED.getValue());
         }
 
-        return false;
+        return new ResponseDto<>(null, CureCodeEnum.ADDING_CURE_ERROR.getValue());
     }
 
     @Override
-    public void deleteClientCure(Long userId, Cure cure) {
+    public ResponseDto<Void> deleteClientCure(Long userId, Cure cure) {
         Optional<Client> clientExists = clientRepository.findById(userId);
 
         if (clientExists.isPresent()){
             Client client = clientExists.get();
             ClientDose clientDose = new ClientDose.Builder().clientDoseKey(new ClientDoseKey(client.getClientId(),cure.getCureId())).client(client).cure(cure).build();
             clientDoseRepository.delete(clientDose);
+
+            return new ResponseDto<>(null, CureCodeEnum.CURE_DELETED.getValue());
         }
+
+        return new ResponseDto<>(null, CureCodeEnum.CURE_DELETE_ERROR.getValue());
     }
 
     @Override

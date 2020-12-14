@@ -3,6 +3,7 @@ package pl.edu.pwsztar.service
 import pl.edu.pwsztar.domain.dto.auth.AuthenticationDto
 import pl.edu.pwsztar.domain.dto.cure.ClientDto
 import pl.edu.pwsztar.domain.entity.Client
+import pl.edu.pwsztar.domain.enums.MessageCodeEnum
 import pl.edu.pwsztar.domain.mapper.ClientDaoMapper
 import pl.edu.pwsztar.domain.mapper.ClientDtoMapper
 import pl.edu.pwsztar.domain.repository.ClientRepository
@@ -51,7 +52,7 @@ class AccessServiceTest extends Specification {
         when:
             def result = accessService.register(client)
         then:
-            result
+            result.code == MessageCodeEnum.REGISTRATION_SUCCESS.getValue()
     }
 
     def "Authorization should be possible"() {
@@ -71,7 +72,7 @@ class AccessServiceTest extends Specification {
         when:
             def result = accessService.authentication(user)
         then:
-            result != null
+            result.code == MessageCodeEnum.LOGIN_SUCCESS.getValue()
     }
 
     def "Check email verification"(){
@@ -91,6 +92,6 @@ class AccessServiceTest extends Specification {
         when:
             def result = accessService.completeEmailVerification(_ as String)
         then:
-            result
+            result.code == MessageCodeEnum.EMAIL_CONFIRMATION_SUCCESS.getValue()
     }
 }

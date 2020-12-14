@@ -6,6 +6,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import pl.edu.pwsztar.domain.dto.ResponseDto;
 import pl.edu.pwsztar.domain.dto.cure.CureDto;
 import pl.edu.pwsztar.service.ClientDoseService;
 import pl.edu.pwsztar.service.CureService;
@@ -27,20 +28,22 @@ public class CureApiController {
 
     @CrossOrigin
     @PostMapping(value = "/{userId}/create", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<Void> createCure(@PathVariable Long userId, @RequestBody CureDto cure) {
+    public ResponseEntity<ResponseDto<Void>> createCure(@PathVariable Long userId, @RequestBody CureDto cure) {
+        ResponseDto<Void> result = null;
 
-        cureService.createNewCure(userId, cure);
+        result = cureService.createNewCure(userId, cure);
 
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(result, HttpStatus.CREATED);
     }
 
     @CrossOrigin
     @DeleteMapping(value = "/{userId}/delete", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<Boolean> deleteCure(@PathVariable Long userId, @RequestBody CureDto cure) {
+    public ResponseEntity<ResponseDto<Void>> deleteCure(@PathVariable Long userId, @RequestBody CureDto cure) {
+        ResponseDto<Void> result = null;
 
-        cureService.deleteCure(userId,cure);
+        result = cureService.deleteCure(userId,cure);
 
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @CrossOrigin

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {DosageModel} from '../../models/dosage.model';
 import {DataService} from '../../services/data.service';
 import {Router} from '@angular/router';
+import {CureCodeModel} from '../../enums/cure-code.model';
 
 
 @Component({
@@ -37,10 +38,18 @@ export class DosageComponent implements OnInit {
   }
 
   onDoseSubmit() {
-    this.service.createClientDose(this.dose).subscribe();
-    alert('Medicine added');
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    this.router.onSameUrlNavigation = 'reload';
-    this.router.navigate(['/dose']);
+    this.service.createClientDose(this.dose).subscribe(response => {
+      switch (response.code) {
+        case CureCodeModel.CURE_CREATED:
+          alert('Medicine added');
+          this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+          this.router.onSameUrlNavigation = 'reload';
+          this.router.navigate(['/dose']);
+          break;
+        case CureCodeModel.ADDING_CURE_ERROR:
+          alert('Error while adding cure')
+          break;
+      }
+    });
   }
 }

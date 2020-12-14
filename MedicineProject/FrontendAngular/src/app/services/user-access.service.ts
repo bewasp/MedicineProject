@@ -5,6 +5,8 @@ import {LoginModel} from '../models/login.model';
 import {map} from 'rxjs/operators';
 import {JwtHelper} from 'angular2-jwt';
 import {TokenModel} from '../models/token.model';
+import {Observable} from 'rxjs';
+import {ResponseModel} from '../models/response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,20 +24,20 @@ export class UserAccessService {
     })
   };
 
-  register(client: RegisterModel) {
-    return this.http.post<boolean>(this.url + '/register' , client , this.httpOptions);
+  register(client: RegisterModel): Observable<ResponseModel<any>> {
+    return this.http.post<ResponseModel<any>>(this.url + '/register' , client , this.httpOptions);
   }
 
   loginMethod(client: LoginModel) {
     return this.http.post(this.url + '/login' , client , this.httpOptions)
       .pipe(
-        map ((result: TokenModel) => {
-          if (result && result.token) {
-            localStorage.setItem('token', result.token);
-            console.log(result.token);
-            return true;
+        map ((result: ResponseModel<TokenModel>) => {
+          if (result.dto) {
+            localStorage.setItem('token', result.dto.token);
+            console.log(result.dto.token);
+            return result.code;
           }
-          return false;
+          return result.code;
         })
       );
   }
@@ -69,7 +71,7 @@ export class UserAccessService {
     return localStorage.getItem('token');
   }
 
-  confirmRegistration(id: string) {
-    return this.http.get(this.url + '/register/confirm-email/' + id);
+  confirmRegistration(id: string): Observable<ResponseModel<any>> {
+    return this.http.get<ResponseModel<any>>(this.url + '/register/confirm-email/' + id);
   }
 }

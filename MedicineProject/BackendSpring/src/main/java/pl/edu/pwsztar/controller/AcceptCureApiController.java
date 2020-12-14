@@ -6,6 +6,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import pl.edu.pwsztar.domain.dto.ResponseDto;
 import pl.edu.pwsztar.domain.dto.cure.ClientInfo;
 import pl.edu.pwsztar.domain.dto.cure.CureDto;
 import pl.edu.pwsztar.service.AcceptingDoseService;
@@ -24,8 +25,8 @@ public class AcceptCureApiController {
 
     @CrossOrigin
     @PostMapping(value = "/{userId}/apply-accept", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<Boolean> accepting(@PathVariable Long userId, @RequestBody CureDto cure) {
-        boolean result = false;
+    public ResponseEntity<ResponseDto<Void>> accepting(@PathVariable Long userId, @RequestBody CureDto cure) {
+        ResponseDto<Void> result;
 
         result = acceptingDoseService.acceptingCure(userId, cure);
 

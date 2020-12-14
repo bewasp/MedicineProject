@@ -3,6 +3,8 @@ import {DosageModel} from '../../models/dosage.model';
 import {Router} from '@angular/router';
 import {DataService} from '../../services/data.service';
 import {ClientCuresService} from '../../services/client-cures.service';
+import {AcceptingCureModel} from '../../enums/accepting-cure.model';
+import {CureCodeModel} from '../../enums/cure-code.model';
 
 @Component({
   selector: 'app-medicine',
@@ -31,16 +33,33 @@ export class MedicineComponent implements OnInit {
   }
 
   deleteMedicine() {
-    this.service.deleteDose(this.dosageModel).subscribe(() => {
-      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-      this.router.onSameUrlNavigation = 'reload';
-      this.router.navigate(['/medicines']);
+    this.service.deleteDose(this.dosageModel).subscribe(response => {
+      switch (response.code) {
+        case CureCodeModel.CURE_DELETED:
+          this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+          this.router.onSameUrlNavigation = 'reload';
+          this.router.navigate(['/medicines']);
+          break;
+        case CureCodeModel.CURE_DELETE_ERROR:
+          alert('Error while deleting medicine');
+          break
+      }
     });
   }
 
   acceptMedicine() {
     this.serviceCure.acceptDose(this.dosageModel).subscribe(response => {
-      console.log(response);
+      switch (response.code) {
+        case AcceptingCureModel.ACCEPTING_CURE_DELAYED:
+          alert("You took your medicine after needed time")
+          break;
+        case AcceptingCureModel.ACCEPTING_CURE_LATE:
+          alert("You are trying to take your medicine after needed time or too fast")
+          break;
+        case AcceptingCureModel.ACCEPTING_CURE_IN_TIME:
+          alert("You took your medicine in time")
+          break;
+      }
     });
   }
 }
