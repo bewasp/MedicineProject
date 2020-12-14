@@ -1,11 +1,13 @@
 .chart-display {
   display: flex;
+  margin-top: 20px;
 }
 
 .flex-container {
   display: flex;
   flex-flow: column;
   align-items: center;
+  margin-top: 20px;
 }
 
 .text-forms {

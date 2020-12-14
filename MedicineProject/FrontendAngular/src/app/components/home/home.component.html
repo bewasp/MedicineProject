@@ -5,9 +5,20 @@
     </h1>
     <img width="300" alt="Medicine logo" src="https://pliki.rynekzdrowia.pl/i/15/24/01/152401_r0_940.jpg">
   </div>
-  <div>
-    Aplikacja ma na zadaniu przypomnieć każdemu zalogowanemu użytkownikowi jakie podane przez niego leki kiedy i ile ma zażyć.
-    Ponadto można zobaczyć wykres przyjętych, opóźnionych lub nie przyjętych leków.
-    Użytkownik dostaje powiadomienie oraz podgląd własnych "ustawień" leków.
+  <div style="margin-top: 20px;">
+    Głównym założeniem projektu było stworzenie aplikacji klienckiej w Angularze oraz aplikacji serwerowej w Javie z spring boot oraz z wykorzystaniem bazy danych PostgreSQL.
+    W tej aplikacji użytkownik może się zarejestrować i po zalogowaniu dodać swoje leki wraz z dawkami dziennymi, odstępami między dawkami i ilością dawki. Następnie będzie dostawać powiadomienia e-mailu:
+    <ul>
+      <li>
+        jaki lek ma przyjąć
+      </li>
+      <li>
+        za ile ma przyjąć lek
+      </li>
+      <li>
+        w jakich dawkach ma przyjąć dany lek
+      </li>
+    </ul>
+    Aplikacja generuje też wykres kołowy, gdzie można podejrzeć ile leków zostało przyjętych, ile opóźnionych, a ile pominiętych. Oprócz tego znajduje się też raport, który wyświetla kiedy był zażyty lek i jaki oraz status danego leku.
   </div>
 </div>

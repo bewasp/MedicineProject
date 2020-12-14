@@ -34,7 +34,6 @@ export class UserAccessService {
         map ((result: ResponseModel<TokenModel>) => {
           if (result.dto) {
             localStorage.setItem('token', result.dto.token);
-            console.log(result.dto.token);
             return result.code;
           }
           return result.code;

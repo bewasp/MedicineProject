@@ -62,7 +62,7 @@ export class RegisterComponent implements OnInit {
           alert('This email is already used');
           break;
         case MessageCodeModel.REGISTRATION_SUCCESS:
-          alert('Registration success, now you can login!');
+          alert('Registration success, confirm your email!');
           break;
         case MessageCodeModel.UNEXPECTED_ERROR:
           alert('There is some problem');

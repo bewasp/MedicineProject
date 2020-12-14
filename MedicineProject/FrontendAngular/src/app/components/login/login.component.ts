@@ -43,13 +43,13 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/']);
           break;
         case MessageCodeModel.EMAIL_NOT_REGISTERED:
-          alert("This email is not exists");
+          alert('This email is not exists');
           break;
         case MessageCodeModel.NOT_ACTIVATED_EMAIL:
-          alert("This email is not confirmed");
+          alert('This email is not confirmed');
           break;
         case MessageCodeModel.UNEXPECTED_ERROR:
-          alert("There is some error");
+          alert('There is some error');
           break;
       }
     });

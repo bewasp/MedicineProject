@@ -98,7 +98,7 @@ public class MailServiceImpl implements MailService {
         try {
             toClient = client.getEmail();
             subject = "Medicine App: Account activation";
-            text = "Please, click this link to verify your email\n:" +
+            text = "Please, click this link to verify your email:\n" +
                     domain + "register/confirm-email/" + link;
 
             Message message = config(toClient, subject, text);

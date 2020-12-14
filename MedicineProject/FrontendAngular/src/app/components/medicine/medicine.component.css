@@ -1,11 +1,12 @@
 .flex-container {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .items {
   color: white;
-  width: 500px;
+  width: 600px;
   background: rgba(0,0,0,0.5);
   border-radius: 25px;
 }
