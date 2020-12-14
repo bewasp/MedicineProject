@@ -14,7 +14,6 @@ import pl.edu.pwsztar.domain.dto.cure.ClientDto;
 import pl.edu.pwsztar.domain.entity.Client;
 import pl.edu.pwsztar.domain.entity.Link;
 import pl.edu.pwsztar.domain.entity.Token;
-import pl.edu.pwsztar.domain.enums.AcceptingCureEnum;
 import pl.edu.pwsztar.domain.enums.MessageCodeEnum;
 import pl.edu.pwsztar.domain.mapper.convert.Converter;
 import pl.edu.pwsztar.domain.repository.ClientRepository;
@@ -28,7 +27,6 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.LinkedHashMap;
 import java.util.Optional;
 
 @Service

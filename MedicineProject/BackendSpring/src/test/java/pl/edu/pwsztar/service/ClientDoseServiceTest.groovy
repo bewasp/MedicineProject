@@ -1,6 +1,5 @@
 package pl.edu.pwsztar.service
 
-import pl.edu.pwsztar.domain.dao.ClientDao
 import pl.edu.pwsztar.domain.dto.cure.CureDto
 import pl.edu.pwsztar.domain.entity.Client
 import pl.edu.pwsztar.domain.entity.Cure

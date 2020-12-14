@@ -2,7 +2,6 @@ package pl.edu.pwsztar.service
 
 import pl.edu.pwsztar.domain.dao.ClientDao
 import pl.edu.pwsztar.domain.dao.CureDao
-import pl.edu.pwsztar.domain.entity.Client
 import pl.edu.pwsztar.service.serviceImpl.AccessServiceImpl
 import pl.edu.pwsztar.service.serviceImpl.MailServiceImpl
 import spock.lang.Specification

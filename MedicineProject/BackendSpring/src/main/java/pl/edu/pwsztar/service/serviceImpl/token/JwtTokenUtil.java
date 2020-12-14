@@ -4,9 +4,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
 import pl.edu.pwsztar.domain.dao.ClientDao;
-import pl.edu.pwsztar.domain.entity.Client;
 
 import java.io.Serializable;
 import java.util.Date;
