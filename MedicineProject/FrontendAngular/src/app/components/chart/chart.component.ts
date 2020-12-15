@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Color} from 'ng2-charts';
 import {ClientInfoModel} from '../../models/client-info.model';
 import {ClientCuresService} from '../../services/client-cures.service';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-chart',
@@ -35,6 +36,7 @@ export class ChartComponent implements OnInit {
 
   ngOnInit() {
     this.getStats();
+    AOS.init();
   }
 
   getStats() {

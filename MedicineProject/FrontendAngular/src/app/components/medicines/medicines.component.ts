@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from '../../services/data.service';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-medicines',
@@ -13,6 +14,7 @@ export class MedicinesComponent implements OnInit {
 
   ngOnInit() {
     this.getMedicines();
+    AOS.init();
   }
 
   getMedicines() {
