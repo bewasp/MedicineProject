@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <a routerLink="/"><img class="logo" src="assets/images/medicines.svg" alt="The Medicine App" style="width: 50px; height: 50px;"></a>
+    <button mat-button routerLink="/">Home</button>
+    <button mat-button routerLink="/dose" *ngIf="authService.isLoggedIn()">Dosage</button>
+    <button mat-button routerLink="/medicines" *ngIf="authService.isLoggedIn()">Your medicines</button>
+    <button mat-button routerLink="/chart" *ngIf="authService.isLoggedIn()">Chart and raport</button>
+
+    <span class="spacer"></span>
+
+    <button mat-button routerLink="/login" *ngIf="!authService.isLoggedIn()">Login</button>
+    <button mat-button routerLink="/register" *ngIf="!authService.isLoggedIn()">Register</button>
+    <button mat-button (click)="logOut()" *ngIf="authService.isLoggedIn()">Logout</button>
+  </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,46 @@
+<h3 style="display: flex; justify-content: center; margin-top: 20px;">Add new dosage to your list of medicines</h3>
+<div class="medium-list">
+  <div class="list-viewer-wrapper">
+    <div class="list-header-title">Dosage</div>
+
+    <form [formGroup]="doseForm" (ngSubmit)="doseForm.valid && onDoseSubmit()" novalidate>
+      <div class="form-container">
+
+        <mat-form-field>
+          <input id="name"
+                 matInput
+                 formControlName="name"
+                 [(ngModel)]="dose.name"
+                 placeholder="Enter your name of medicine" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input id="dailyDose"
+                 matInput
+                 formControlName="dailyDose"
+                 [(ngModel)]="dose.dailyDose"
+                 placeholder="Enter your daily dose of medicine" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input id="doseTimestamp"
+                 matInput
+                 formControlName="doseTimestamp"
+                 [(ngModel)]="dose.doseTimestamp"
+                 placeholder="Enter your timestamp of dosage medicine" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input id="numberDose"
+                 matInput
+                 formControlName="doseNumber"
+                 [(ngModel)]="dose.doseNumber"
+                 placeholder="Enter your number of doses medicine" />
+        </mat-form-field>
+
+        <button mat-button type="submit"
+                class="mat-raised-button mat-primary" [disabled]="!doseForm.valid">Add dosage</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+.flex-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.items {
+  color: white;
+  width: 600px;
+  background: rgba(0,0,0,0.5);
+  border-radius: 25px;
+}
+
+.text-forms {
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 15px black;
+  font-family: Georgia;
+  overflow-y: auto;
+}

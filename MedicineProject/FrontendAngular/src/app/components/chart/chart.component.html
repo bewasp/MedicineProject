@@ -1,0 +1,16 @@
+<div class="chart-display" data-aos="zoom-in" data-aos-once="true">
+  <canvas style="height:100px; width:100px; justify-content: center" baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          [colors]="colors"></canvas>
+</div>
+
+<div class="flex-container" *ngIf="stats !== null">
+  <h3>Raport:</h3>
+  <div class="text-forms" *ngFor="let i of stats.report">
+    <mat-list>
+      <mat-list-item class="items"> <mat-icon>cached</mat-icon> {{i.acceptedDose}} | <mat-icon>calendar_today</mat-icon> {{i.date}} | Name of medicine: {{i.name}}</mat-list-item>
+    </mat-list>
+  </div>
+</div>
