@@ -66,11 +66,19 @@ public class AcceptingDoseServiceImpl implements AcceptingDoseService {
         Client client = clientRepository.findClient(userId);
         Cure cure = cureRepository.findCure(cureDto.getName(),cureDto.getDailyDose(),cureDto.getDoseNumber(),cureDto.getDoseTimestamp());
 
-        String currentTime = dateFormat.format(new Date());
-        Optional<AcceptedDose> checkAcceptedDose = Optional.ofNullable(doseRepository.findInfo(client.getClientId(),cure.getCureId(),currentTime.substring(0,13)));
+        Calendar cal = GregorianCalendar.getInstance();
+        cal.add(Calendar.MINUTE, GlobalVariables.getInstance().testAddingTime);
+        String currentTime = dateFormat.format(cal.getTime());
 
-        int minutes = (Integer.parseInt(currentTime.substring(11,13)) * 60) + Integer.parseInt(currentTime.substring(14,16)) + GlobalVariables.getInstance().testAddingTime;
+        int minutes = (Integer.parseInt(currentTime.substring(11,13)) * 60) + Integer.parseInt(currentTime.substring(14,16));
         int cureTime = cure.getDoseTimestamp()*60;
+
+        int leftTime = Math.abs(cureTime - minutes%cureTime);
+        cal.add(Calendar.MINUTE, leftTime);
+        String acceptingDoseTime = dateFormat.format(cal.getTime());
+
+        Optional<AcceptedDose> checkAcceptedDose = Optional.ofNullable(doseRepository.findInfo(client.getClientId(),cure.getCureId(),acceptingDoseTime.substring(0,13)));
+
 
         AcceptedDose acceptedDose = null;
         if(checkAcceptedDose.isEmpty()) {
@@ -85,6 +93,7 @@ public class AcceptingDoseServiceImpl implements AcceptingDoseService {
         if(checkAcceptedDose.isEmpty() && (minutes%cureTime > 0 && minutes%cureTime >= cureTime-GlobalVariables.getInstance().acceptingTime)){
             acceptedDose =
                     new AcceptedDose.Builder(acceptedDose)
+                        .id(new AcceptedDoseKey(client.getClientId(), cure.getCureId(), acceptingDoseTime))
                         .accepted(true)
                         .delayed(false)
                         .build();
@@ -92,8 +101,14 @@ public class AcceptingDoseServiceImpl implements AcceptingDoseService {
             doseRepository.save(acceptedDose);
             return new ResponseDto<>(null, AcceptingCureEnum.ACCEPTING_CURE_IN_TIME.getValue());
         } else if (checkAcceptedDose.isEmpty() && minutes%cureTime < GlobalVariables.getInstance().maxDelayTime && minutes%cureTime >= 0){
+            leftTime *= -1;
+
+            cal.add(Calendar.MINUTE, leftTime);
+            String neededCureTime = dateFormat.format(cal.getTime());
+
             acceptedDose =
                     new AcceptedDose.Builder(acceptedDose)
+                            .id(new AcceptedDoseKey(client.getClientId(), cure.getCureId(), neededCureTime))
                             .accepted(true)
                             .delayed(true)
                             .build();
@@ -139,9 +154,12 @@ public class AcceptingDoseServiceImpl implements AcceptingDoseService {
 
     @Scheduled(initialDelay = 5000, fixedDelay = 1000 * 60)
     public void acceptingDose(){
-        String currentTime = dateFormat.format(new Date());
+        Calendar cal = GregorianCalendar.getInstance();
+        cal.add(Calendar.MINUTE, GlobalVariables.getInstance().testAddingTime);
+
+        String currentTime = dateFormat.format(cal.getTime());
         int minute = Integer.parseInt(currentTime.substring(14,16));
-        int minutes = (Integer.parseInt(currentTime.substring(11,13)) * 60) + minute + GlobalVariables.getInstance().testAddingTime;
+        int minutes = (Integer.parseInt(currentTime.substring(11,13)) * 60) + minute;
 
         List<Client> clients = clientRepository.findAll();
 
@@ -160,7 +178,12 @@ public class AcceptingDoseServiceImpl implements AcceptingDoseService {
                 }
 
                 if(minutes%cureTime == GlobalVariables.getInstance().maxDelayTime && checkAcceptedDose.isEmpty()){
-                    doseRepository.save(new AcceptedDose.Builder().id(new AcceptedDoseKey(client.getClientId(),cure.getCureId(),currentTime)).accepted(false).delayed(false).client(client).cure(cure).build());
+                    int leftTime = minutes%cureTime - cureTime;
+
+                    cal.add(Calendar.MINUTE, leftTime);
+                    String neededCureTime = dateFormat.format(cal.getTime());
+
+                    doseRepository.save(new AcceptedDose.Builder().id(new AcceptedDoseKey(client.getClientId(),cure.getCureId(),neededCureTime)).accepted(false).delayed(false).client(client).cure(cure).build());
                 }
             }
         }

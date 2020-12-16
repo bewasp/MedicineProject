@@ -35,7 +35,7 @@ public class CureServiceImpl implements CureService {
         Optional<Cure> findCure = Optional.ofNullable(cureRepository.findCure(cure.getName(), cure.getDailyDose(), cure.getDoseNumber(), cure.getDoseTimestamp()));
         Cure newCure = null;
 
-        if(findCure.isEmpty()){
+        if(findCure.isEmpty() && cure.getDailyDose()%(24/(float)cure.getDoseTimestamp())==0){
             newCure = cureMapper.convert(cure);
             newCure = cureRepository.save(newCure);
         }

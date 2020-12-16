@@ -37,6 +37,10 @@ public class AcceptedDoseKey implements Serializable {
         return doseDate;
     }
 
+    public void setDoseDate(String doseDate) {
+        this.doseDate = doseDate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
